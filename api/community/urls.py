@@ -4,5 +4,5 @@ from rest_framework import routers
 from . import views
 
 urlpatterns = [
-    path('events/', views.EventList),
+    path("events/", views.EventList),
 ]
