@@ -1,8 +1,8 @@
-import * as React from "react";
-import { Home } from "../ui/pages";
+import * as React from 'react'
+import { Home } from '../ui/pages'
 
 const Page = () => {
-  return <Home/>;
-};
+  return <Home/>
+}
 
-export default Page;
+export default Page

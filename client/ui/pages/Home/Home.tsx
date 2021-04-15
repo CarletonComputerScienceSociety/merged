@@ -1,7 +1,7 @@
-import React from "react";
+import React from 'react'
 
 const Home = () => {
-    return <h1>Welcome to My Next App!</h1>;
-};
-  
-export { Home };
+  return <h1>Welcome to My Next App!</h1>
+}
+
+export { Home }

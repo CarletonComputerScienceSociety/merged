@@ -1,11 +1,11 @@
-import React from "react";
+import React from 'react'
 
 type Props = {
   text: string;
 };
 
 const Button = ({ text }: Props) => {
-  return <button>{text}</button>;
-};
+  return <button>{text}</button>
+}
 
-export { Button };
+export { Button }
