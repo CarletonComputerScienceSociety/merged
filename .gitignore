@@ -14,9 +14,12 @@ node_modules
 
 # production
 /build
+__pycache__
+db.sqlite3
 
 # misc
 .DS_Store
+.vscode
 
 # debug
 npm-debug.log*
