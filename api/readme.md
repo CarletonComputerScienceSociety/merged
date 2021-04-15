@@ -15,5 +15,8 @@ get requirements
 start server
     python manage.py runserver
 
+test
+    python manage.py test
+
 lint
     black .  
