@@ -12,10 +12,12 @@ node_modules
 .next/
 /out/
 
-# production
-/build
+# django
 __pycache__
 db.sqlite3
+
+# production
+/build
 
 # misc
 .DS_Store
