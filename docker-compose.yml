@@ -4,9 +4,9 @@ services:
   db:
     image: postgres:12-alpine
     environment: 
-        POSTGRES_USER: postgres
-        POSTGRES_PASSWORD: 1234
-        POSTGRES_DB: community_db
+      POSTGRES_USER: postgres
+      POSTGRES_PASSWORD: 1234
+      POSTGRES_DB: community_db
     volumes:
       - community_db_data:/var/lib/postgresql/data
     networks:
@@ -20,7 +20,7 @@ services:
     volumes:
       - .:/code
     ports:
-      - "8001:8000"
+      - "8000:8000"
     depends_on:
       - db
     networks:
