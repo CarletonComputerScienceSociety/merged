@@ -1,7 +1,28 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`renders correctly 1`] = `
-<h1>
-  Welcome to My Next App!
-</h1>
+<div>
+  <h1>
+    Events:
+  </h1>
+  <div
+    className="events"
+  >
+    <h2>
+      1
+      . 
+      test
+    </h2>
+    <h2>
+      2
+      . 
+      test
+    </h2>
+    <h2>
+      3
+      . 
+      test
+    </h2>
+  </div>
+</div>
 `;
