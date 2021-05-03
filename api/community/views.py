@@ -2,8 +2,8 @@ from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import render
 from rest_framework.parsers import JSONParser
-from .models import Event, Organization
-from .serializers import EventSerializer, OrganizationSerializer
+from .models import Event, Organization , Member
+from .serializers import EventSerializer, OrganizationSerializer , MemberSerializer
 
 
 @csrf_exempt
@@ -25,4 +25,14 @@ def OrganizationList(request):
     if request.method == "GET":
         organization = Organization.objects
         serializer = OrganizationSerializer(organization, many=True)
+        return JsonResponse(serializer.data, safe=False)
+
+@csrf_exempt
+def MembersList(request):
+    """
+    List all Members.
+    """
+    if request.method == "GET":
+        member = Member.objects
+        serializer = MemberSerializer(member, many=True)
         return JsonResponse(serializer.data, safe=False)

@@ -6,4 +6,5 @@ from . import views
 urlpatterns = [
     path("events/", views.EventList),
     path("organizations/", views.OrganizationList),
+    path("members/", views.MembersList),
 ]
