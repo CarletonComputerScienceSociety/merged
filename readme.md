@@ -33,11 +33,14 @@ deactivate
 ```
 
 ### 3. Install Python dependencies
-
+Option 1:
 ```bash
 pip install -r requirements.txt
 ```
-
+If Option 1 does not run currectly try the following:
+```bash
+pip3 install -r requirements.txt
+```
 ### 4. Update your Database configuration
 
 Currently this application uses a postgres database, but for local development if may be quicker for you to use SQLite.
