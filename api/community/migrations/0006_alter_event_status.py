@@ -6,13 +6,17 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('community', '0005_rename_draft_event_status'),
+        ("community", "0005_rename_draft_event_status"),
     ]
 
     operations = [
         migrations.AlterField(
-            model_name='event',
-            name='status',
-            field=models.CharField(choices=[('finalized', 'FINALIZED'), ('planning', 'PLANNING')], default='planning', max_length=10),
+            model_name="event",
+            name="status",
+            field=models.CharField(
+                choices=[("finalized", "FINALIZED"), ("planning", "PLANNING")],
+                default="planning",
+                max_length=10,
+            ),
         ),
     ]

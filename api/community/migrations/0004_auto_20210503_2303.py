@@ -6,23 +6,34 @@ from django.db import migrations, models
 class Migration(migrations.Migration):
 
     dependencies = [
-        ('community', '0003_auto_20210503_1832'),
+        ("community", "0003_auto_20210503_1832"),
     ]
 
     operations = [
         migrations.CreateModel(
-            name='Member',
+            name="Member",
             fields=[
-                ('id', models.BigAutoField(auto_created=True, primary_key=True, serialize=False, verbose_name='ID')),
-                ('first_name', models.CharField(max_length=200)),
-                ('last_name', models.CharField(max_length=200)),
-                ('title', models.CharField(max_length=150)),
-                ('email', models.EmailField(db_index=True, max_length=255, unique=True)),
+                (
+                    "id",
+                    models.BigAutoField(
+                        auto_created=True,
+                        primary_key=True,
+                        serialize=False,
+                        verbose_name="ID",
+                    ),
+                ),
+                ("first_name", models.CharField(max_length=200)),
+                ("last_name", models.CharField(max_length=200)),
+                ("title", models.CharField(max_length=150)),
+                (
+                    "email",
+                    models.EmailField(db_index=True, max_length=255, unique=True),
+                ),
             ],
         ),
         migrations.AddField(
-            model_name='organization',
-            name='members',
-            field=models.ManyToManyField(to='community.Member'),
+            model_name="organization",
+            name="members",
+            field=models.ManyToManyField(to="community.Member"),
         ),
     ]

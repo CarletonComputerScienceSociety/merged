@@ -7,4 +7,5 @@ urlpatterns = [
     path("events/", views.EventList),
     path("organizations/", views.OrganizationList),
     path("members/", views.MembersList),
+    path("announcements/", views.AnnouncementList),
 ]

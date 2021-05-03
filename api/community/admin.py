@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Event, Member, Organization
+from .models import Announcement, Event, Member, Organization
 
 # Register your models here.
 @admin.register(Event)
@@ -11,6 +11,12 @@ class EventResource(admin.ModelAdmin):
 class Organization(admin.ModelAdmin):
     list_display = ["id", "title", "website"]
 
+
 @admin.register(Member)
-class Organization(admin.ModelAdmin):
-    list_display = ["first_name","last_name", "title", "email"]
+class Member(admin.ModelAdmin):
+    list_display = ["first_name", "last_name", "title", "email"]
+
+
+@admin.register(Announcement)
+class Announcement(admin.ModelAdmin):
+    list_display = ["id", "title", "preview", "link"]
