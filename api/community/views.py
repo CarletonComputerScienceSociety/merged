@@ -2,7 +2,7 @@ from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import render
 from rest_framework.parsers import JSONParser
-from .models import Event,Organization
+from .models import Event, Organization
 from .serializers import EventSerializer, OrganizationSerializer
 
 
@@ -15,7 +15,7 @@ def EventList(request):
         events = Event.objects
         serializer = EventSerializer(events, many=True)
         return JsonResponse(serializer.data, safe=False)
-    
+
 
 @csrf_exempt
 def OrganizationList(request):
@@ -26,5 +26,3 @@ def OrganizationList(request):
         organization = Organization.objects
         serializer = OrganizationSerializer(organization, many=True)
         return JsonResponse(serializer.data, safe=False)
-
-    
