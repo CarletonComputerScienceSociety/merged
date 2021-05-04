@@ -7,9 +7,9 @@ from .serializers import EventSerializer, OrganizationSerializer, MemberSerializ
 
 
 @csrf_exempt
-def EventList(request):
+def EventListAll(request):
     """
-    List all job events, or create a new event.
+    List all job events, or create a new  event.
     """
     if request.method == "GET":
         events = Event.objects
@@ -18,12 +18,31 @@ def EventList(request):
 
 
 @csrf_exempt
-def OrganizationList(request):
+def EventById(request, id):
+    if request.method == "GET":
+        event = Event.objects.filter(id=id)
+        serializer = EventSerializer(event, many=True)
+        return JsonResponse(serializer.data, safe=False)
+
+
+@csrf_exempt
+def OrganizationListAll(request):
     """
     List all Organizations.
     """
     if request.method == "GET":
         organization = Organization.objects
+        serializer = OrganizationSerializer(organization, many=True)
+        return JsonResponse(serializer.data, safe=False)
+
+
+@csrf_exempt
+def OrganizationListByTitle(request, title):
+    """
+    List Organizations By Title
+    """
+    if request.method == "GET":
+        organization = Organization.objects.filter(title=title)
         serializer = OrganizationSerializer(organization, many=True)
         return JsonResponse(serializer.data, safe=False)
 
