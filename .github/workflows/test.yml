@@ -22,7 +22,9 @@ jobs:
         pip install -r api/requirements.txt
 
     - name: Run migrations
-      run: python api/manage.py migrate
+      run: |
+        export DJANGO_SETTINGS_MODULE=api.settings.test
+        python api/manage.py migrate
 
     - name: Run tests
       run: |
