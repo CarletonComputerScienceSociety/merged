@@ -36,4 +36,6 @@ jobs:
     - name: Run migrations
       run: python api/manage.py migrate
     - name: Run tests
+      run: |
+        poetry install
       run: python api/manage.py test
