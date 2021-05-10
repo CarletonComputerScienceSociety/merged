@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Announcement, Event, Member, Organization
+from .models import Announcement, Event, Member, NewsItem, Organization, NewsItem
 
 # Register your models here.
 @admin.register(Event)
@@ -20,3 +20,7 @@ class Member(admin.ModelAdmin):
 @admin.register(Announcement)
 class Announcement(admin.ModelAdmin):
     list_display = ["id", "title", "preview", "link"]
+
+@admin.register(NewsItem)
+class NewsItem(admin.ModelAdmin):
+    list_display = ["id", "news_item_type"]

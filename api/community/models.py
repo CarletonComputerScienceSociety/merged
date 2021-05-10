@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models.base import Model
 
 
 class Member(models.Model):
@@ -81,3 +82,15 @@ class Event(models.Model):
 
     def __str__(self):
         return self.title
+
+class NewsItem(models.Model):
+    TYPE_ANNOUNCEMENT = 'announcement'
+    TYPE_EVENTS = 'events'
+    TYPE_CHOICES = (
+        (TYPE_ANNOUNCEMENT, 'ANNOUNCEMENT'),
+        (TYPE_EVENTS, 'EVENTS'),
+    )
+    news_item_type = models.CharField(
+        max_length=30,
+        choices=TYPE_CHOICES,
+    )
