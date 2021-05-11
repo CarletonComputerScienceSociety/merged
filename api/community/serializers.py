@@ -1,5 +1,5 @@
 from django.db.models import fields
-from community.models import Event, Organization, Member, Announcement
+from community.models import Event, Organization, Member, Announcement, NewsItem
 from rest_framework import serializers
 
 
@@ -27,3 +27,8 @@ class MemberSerializer(serializers.ModelSerializer):
     class Meta:
         model = Member
         fields = ["first_name", "last_name", "title", "email"]
+
+class NewsItemSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = NewsItem
+        fields = ["id", "title"] 
