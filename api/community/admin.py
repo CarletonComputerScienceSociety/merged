@@ -21,6 +21,7 @@ class Member(admin.ModelAdmin):
 class Announcement(admin.ModelAdmin):
     list_display = ["id", "title", "preview", "link"]
 
+
 @admin.register(NewsItem)
 class NewsItem(admin.ModelAdmin):
     list_display = ["id", "title"]

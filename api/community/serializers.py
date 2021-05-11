@@ -28,7 +28,8 @@ class MemberSerializer(serializers.ModelSerializer):
         model = Member
         fields = ["first_name", "last_name", "title", "email"]
 
+
 class NewsItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = NewsItem
-        fields = ["id", "title"] 
+        fields = ["id", "title"]

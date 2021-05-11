@@ -68,12 +68,13 @@ def AnnouncementList(request):
         serializer = MemberSerializer(announcement, many=True)
         return JsonResponse(serializer.data, safe=False)
 
+
 @csrf_exempt
 def NewsItemList(request):
     """
     List all NewsItems.
     """
-    #Will implement for indiviual Eveents and Announcements in Next Commit
+    # Will implement for indiviual Eveents and Announcements in Next Commit
     if request.method == "GET":
         newsitem = Announcement.objects
         serializer = MemberSerializer(newsitem, many=True)

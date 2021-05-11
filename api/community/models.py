@@ -12,10 +12,15 @@ class Member(models.Model):
 
     def __str__(self):
         return self.first_name + " " + self.last_name
+
+
 class NewsItem(models.Model):
-    title = models.CharField(max_length=100, default = "")
+    title = models.CharField(
+        max_length=100, default=""
+    )  # Represents the Title of the Announcment/Event
+
+
 class Announcement(NewsItem):
-    #title = models.CharField(max_length=150)  # Represents the Title of the Announcement
     preview = models.TextField(
         max_length=500
     )  # Represents the preview data of the announcement
@@ -60,7 +65,6 @@ class Organization(models.Model):
 
 
 class Event(NewsItem):
-    #title = models.CharField(max_length=150)  # Represents the Title of the event
     description = models.TextField(
         null=True, blank=True
     )  # Represents the event description
@@ -82,9 +86,6 @@ class Event(NewsItem):
         Organization
     )  # This links various members to single organisation
     description = models.CharField(max_length=100)
+
     def __str__(self):
         return self.title
-
-
-
-    
