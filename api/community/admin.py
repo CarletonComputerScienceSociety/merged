@@ -23,4 +23,4 @@ class Announcement(admin.ModelAdmin):
 
 @admin.register(NewsItem)
 class NewsItem(admin.ModelAdmin):
-    list_display = ["id", "news_item_type"]
+    list_display = ["id", "title"]

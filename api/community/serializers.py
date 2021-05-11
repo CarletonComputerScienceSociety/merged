@@ -31,4 +31,4 @@ class MemberSerializer(serializers.ModelSerializer):
 class NewsItemSerializer(serializers.ModelSerializer):
     class Meta:
         model = NewsItem
-        fields = ["id", "news_item_type"] 
+        fields = ["id", "title"] 
