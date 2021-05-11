@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Announcement, Event, Member, NewsItem, Organization, NewsItem
+from .models import Announcement, Event, Member, NewsItem, Organization
 
 # Register your models here.
 @admin.register(Event)
