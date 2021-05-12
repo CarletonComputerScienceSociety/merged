@@ -64,6 +64,18 @@ def AnnouncementList(request):
     List all Announcements.
     """
     if request.method == "GET":
-        member = Announcement.objects
-        serializer = MemberSerializer(member, many=True)
+        announcement = Announcement.objects
+        serializer = MemberSerializer(announcement, many=True)
+        return JsonResponse(serializer.data, safe=False)
+
+
+@csrf_exempt
+def NewsItemList(request):
+    """
+    List all NewsItems.
+    """
+    # Will implement for indiviual Eveents and Announcements in Next Commit
+    if request.method == "GET":
+        newsitem = Announcement.objects
+        serializer = MemberSerializer(newsitem, many=True)
         return JsonResponse(serializer.data, safe=False)

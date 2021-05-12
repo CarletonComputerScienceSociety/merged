@@ -1,4 +1,5 @@
 from django.db import models
+from django.db.models.base import Model
 
 
 class Member(models.Model):
@@ -13,8 +14,13 @@ class Member(models.Model):
         return self.first_name + " " + self.last_name
 
 
-class Announcement(models.Model):
-    title = models.CharField(max_length=150)  # Represents the Title of the Announcement
+class NewsItem(models.Model):
+    title = models.CharField(
+        max_length=100, default=""
+    )  # Represents the Title of the Announcment/Event
+
+
+class Announcement(NewsItem):
     preview = models.TextField(
         max_length=500
     )  # Represents the preview data of the announcement
@@ -22,6 +28,8 @@ class Announcement(models.Model):
         auto_now=False, auto_now_add=False
     )  # Represents the publication date
     link = models.CharField(max_length=300)  # Represents Link to the main announcement
+
+    preview = models.CharField(max_length=100)
 
     def __str__(self):
         return self.title
@@ -56,8 +64,7 @@ class Organization(models.Model):
         return self.title
 
 
-class Event(models.Model):
-    title = models.CharField(max_length=150)  # Represents the Title of the event
+class Event(NewsItem):
     description = models.TextField(
         null=True, blank=True
     )  # Represents the event description
@@ -78,6 +85,7 @@ class Event(models.Model):
     organization = models.ManyToManyField(
         Organization
     )  # This links various members to single organisation
+    description = models.CharField(max_length=100)
 
     def __str__(self):
         return self.title
