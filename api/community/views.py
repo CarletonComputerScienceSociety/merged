@@ -2,6 +2,8 @@ from django.http import HttpResponse, JsonResponse
 from django.views.decorators.csrf import csrf_exempt
 from django.shortcuts import render
 from rest_framework.parsers import JSONParser
+from rest_framework import status
+from rest_framework.response import Response
 from .models import Announcement, Event, Organization, Member
 from .serializers import EventSerializer, OrganizationSerializer, MemberSerializer
 
@@ -11,10 +13,20 @@ def EventListAll(request):
     """
     List all job events, or create a new  event.
     """
+    current_user = request.user
+    user_organization = current_user.organisation
     if request.method == "GET":
         events = Event.objects
         serializer = EventSerializer(events, many=True)
         return JsonResponse(serializer.data, safe=False)
+    elif request.method == "POST":
+        events_organization = Event.organization
+        if user_organization == events_organization:
+            serializer = EventSerializer(data=request.data)
+            if serializer.is_valid():
+                serializer.save()
+                return Response(serializer.data, status=status.HTTP_201_CREATED)
+    return Response(serializer.errors, status=status.HTTP_400_BAD_REQUEST)
 
 
 @csrf_exempt
