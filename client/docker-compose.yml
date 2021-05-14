@@ -1,0 +1,7 @@
+frontend:
+    build: "../client"
+    ports:
+      - 8000:8000
+    command: sh -c "yarn && yarn dev"
+    volumes:
+      - ../frontend:/community-project/api/client
