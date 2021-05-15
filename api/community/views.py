@@ -14,7 +14,7 @@ def EventListAll(request):
     List all job events, or create a new  event.
     """
     current_user = request.user
-    user_organization = current_user.organisation
+    user_organization = current_user.organization
     if request.method == "GET":
         events = Event.objects
         serializer = EventSerializer(events, many=True)
