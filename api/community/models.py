@@ -42,22 +42,32 @@ STATUS_CHOICES = (
 
 
 class Organization(models.Model):
-    title = models.CharField(max_length=150,blank=True)  # Represents the title of the Organization
+    title = models.CharField(
+        max_length=150, blank=True
+    )  # Represents the title of the Organization
     description = models.TextField(
         null=True, blank=True
     )  # Represents the description of the Organization
-    website = models.CharField(max_length=300,blank=True)  # Represents the organization website
-    facebook = models.CharField(max_length=250,blank=True)  # Represents the organization facebook
+    website = models.CharField(
+        max_length=300, blank=True
+    )  # Represents the organization website
+    facebook = models.CharField(
+        max_length=250, blank=True
+    )  # Represents the organization facebook
     instagram = models.CharField(
-        max_length=250,blank=True
+        max_length=250, blank=True
     )  # Represents the organization instagram
-    discord = models.CharField(max_length=250,blank=True)  # Represents the organization discord
-    slack = models.CharField(max_length=250,blank=True)  # Represents the organization slack
+    discord = models.CharField(
+        max_length=250, blank=True
+    )  # Represents the organization discord
+    slack = models.CharField(
+        max_length=250, blank=True
+    )  # Represents the organization slack
     members = models.ManyToManyField(
-        Member,blank=True
+        Member, blank=True
     )  # This links various members to single organisation
     announcements = models.ManyToManyField(
-        Announcement,blank=True
+        Announcement, blank=True
     )  # This links various members to single organisation
 
     def __str__(self):
