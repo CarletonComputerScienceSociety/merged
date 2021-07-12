@@ -7,18 +7,17 @@ from drf_yasg.views import get_schema_view
 from drf_yasg import openapi
 
 schema_view = get_schema_view(
-   openapi.Info(
-      title="Community API",
-      default_version='v1',
-      description="Web application for viewing all upcoming events in the Carleton CS community",
-      terms_of_service="(Top Be Updated)", #To be Changed
-      contact=openapi.Contact(email="contact@ccss.com"), #To be Changed
-      license=openapi.License(name="BSD License"),
-   ),
-   public=True,
-   permission_classes=(permissions.AllowAny,),
+    openapi.Info(
+        title="Community API",
+        default_version="v1",
+        description="Web application for viewing all upcoming events in the Carleton CS community",
+        terms_of_service="(Top Be Updated)",  # To be Changed
+        contact=openapi.Contact(email="contact@ccss.com"),  # To be Changed
+        license=openapi.License(name="BSD License"),
+    ),
+    public=True,
+    permission_classes=(permissions.AllowAny,),
 )
-
 
 
 urlpatterns = [
@@ -29,6 +28,6 @@ urlpatterns = [
     path("members/", MembersList.as_view()),
     path("announcements/", AnnouncementList.as_view()),
     path("news/", NewsItemList.as_view()),
-    path('', schema_view.with_ui('swagger', cache_timeout=0), name='schema-swagger-ui'),
-    path('redoc/', schema_view.with_ui('redoc', cache_timeout=0), name='schema-redoc'),
+    path("", schema_view.with_ui("swagger", cache_timeout=0), name="schema-swagger-ui"),
+    path("redoc/", schema_view.with_ui("redoc", cache_timeout=0), name="schema-redoc"),
 ]
