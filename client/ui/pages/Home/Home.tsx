@@ -8,9 +8,9 @@ interface Props {
 
 const Home = ({ data }: Props) => {
   return (
-    <div className="home-page">
+    <div className="page home-page">
       <h1>Events:</h1>
-      <div className="events">
+      <div className="card-container">
         {
           data.map((event, index) => (
             <EventCard key={index} title={event.title} date="27 May 2021" body={event.body}/>
