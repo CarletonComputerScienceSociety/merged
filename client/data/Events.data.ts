@@ -21,6 +21,55 @@ const EVENTS: Event[] = [
     body: 'test body',
     start: '2017-01-01T00:00:00.000Z',
     end: '2017-01-01T00:00:00.000Z'
+  },
+  {
+    id: 4,
+    title: 'test',
+    body: 'test body',
+    start: '2017-01-01T00:00:00.000Z',
+    end: '2017-01-01T00:00:00.000Z'
+  },
+  {
+    id: 5,
+    title: 'test',
+    body: 'test body',
+    start: '2017-01-01T00:00:00.000Z',
+    end: '2017-01-01T00:00:00.000Z'
+  },
+  {
+    id: 6,
+    title: 'test',
+    body: 'test body',
+    start: '2017-01-01T00:00:00.000Z',
+    end: '2017-01-01T00:00:00.000Z'
+  },
+  {
+    id: 7,
+    title: 'test',
+    body: 'test body',
+    start: '2017-01-01T00:00:00.000Z',
+    end: '2017-01-01T00:00:00.000Z'
+  },
+  {
+    id: 8,
+    title: 'test',
+    body: 'test body',
+    start: '2017-01-01T00:00:00.000Z',
+    end: '2017-01-01T00:00:00.000Z'
+  },
+  {
+    id: 9,
+    title: 'test',
+    body: 'test body',
+    start: '2017-01-01T00:00:00.000Z',
+    end: '2017-01-01T00:00:00.000Z'
+  },
+  {
+    id: 10,
+    title: 'test',
+    body: 'test body',
+    start: '2017-01-01T00:00:00.000Z',
+    end: '2017-01-01T00:00:00.000Z'
   }
 ]
 
