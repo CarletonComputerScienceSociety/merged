@@ -70,6 +70,20 @@ const EVENTS: Event[] = [
     body: 'test body',
     start: '2017-01-01T00:00:00.000Z',
     end: '2017-01-01T00:00:00.000Z'
+  },
+  {
+    id: 11,
+    title: 'test',
+    body: 'test body',
+    start: '2017-01-01T00:00:00.000Z',
+    end: '2017-01-01T00:00:00.000Z'
+  },
+  {
+    id: 12,
+    title: 'test',
+    body: 'test body',
+    start: '2017-01-01T00:00:00.000Z',
+    end: '2017-01-01T00:00:00.000Z'
   }
 ]
 
