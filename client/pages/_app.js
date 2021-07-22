@@ -1,7 +1,12 @@
 import '../styles/global.scss'
+import { Navbar } from '../ui/shared'
 
-function MyApp({ Component, pageProps }) {
-  return <Component {...pageProps} />
+// eslint-disable-next-line react/prop-types
+function MyApp ({ Component, pageProps }) {
+  return <>
+    <Navbar />
+    <Component {...pageProps} />
+  </>
 }
 
 export default MyApp
