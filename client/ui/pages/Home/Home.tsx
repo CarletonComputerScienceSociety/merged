@@ -8,7 +8,7 @@ interface Props {
 
 const Home = ({ data }: Props) => {
   return (
-    <div>
+    <div className="home-page">
       <h1>Events:</h1>
       <div className="events">
         {
