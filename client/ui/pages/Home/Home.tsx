@@ -1,6 +1,6 @@
 import React from 'react'
 import { Event } from '../../../model'
-import { EventCard } from '../../components'
+import { EventCard } from '../../shared'
 
 interface Props {
   data: Event[];
