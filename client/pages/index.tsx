@@ -13,7 +13,7 @@ const Page = ({ data }: Props) => {
 }
 
 export const getServerSideProps = async () => {
-  const data = []
+  const data = await getEvents()
 
   return {
     props: { data }
