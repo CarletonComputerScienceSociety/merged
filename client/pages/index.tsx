@@ -1,7 +1,7 @@
 import * as React from 'react'
 
 import { Home } from '../ui/pages'
-import { getEvents } from '../data'
+import { getEvents } from '../services'
 import { Event } from '../types'
 
 interface Props {

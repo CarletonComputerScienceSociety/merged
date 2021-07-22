@@ -1,5 +1,5 @@
-import { Event } from '../../types'
-import { exampleEvents } from '../../data'
+import { Event } from '../types'
+import { EVENTS } from '../data'
 
 const getEvents = async (): Promise<Event[]> => {
   // eslint-disable-next-line no-constant-condition
@@ -11,7 +11,7 @@ const getEvents = async (): Promise<Event[]> => {
       }
     }).then((response) => response.json())
   } else {
-    return exampleEvents
+    return EVENTS
   }
 }
 

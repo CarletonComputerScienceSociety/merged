@@ -1,6 +1,6 @@
-import { Event } from '../../types'
+import { Event } from '../types'
 
-const exampleEvents: Event[] = [
+const EVENTS: Event[] = [
   {
     id: 1,
     title: 'test',
@@ -24,4 +24,4 @@ const exampleEvents: Event[] = [
   }
 ]
 
-export { exampleEvents }
+export { EVENTS }
