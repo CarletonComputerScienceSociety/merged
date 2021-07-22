@@ -1,5 +1,5 @@
 import React from 'react'
-import { Event } from '../../../model'
+import { Event } from '../../../types'
 import { EventCard } from '../../shared'
 
 interface Props {

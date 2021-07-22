@@ -1,4 +1,4 @@
-import { Event } from '../../model'
+import { Event } from '../../types'
 
 const exampleEvents: Event[] = [
   {

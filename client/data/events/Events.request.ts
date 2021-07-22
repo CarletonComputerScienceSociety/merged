@@ -1,4 +1,4 @@
-import { Event } from '../../model'
+import { Event } from '../../types'
 import { exampleEvents } from '../../data'
 
 const getEvents = async (): Promise<Event[]> => {
