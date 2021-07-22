@@ -2,7 +2,7 @@ import * as React from 'react'
 
 import { Home } from '../ui/pages'
 import { getEvents } from '../data'
-import { Event } from '../model'
+import { Event } from '../types'
 
 interface Props {
   data: Event[];
