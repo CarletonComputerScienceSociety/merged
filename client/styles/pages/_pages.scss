@@ -1,7 +1,7 @@
 @import './Home/home-page';
 
-.page {
-    max-width: 1100px;
+.page-wrap {
+    max-width: 1200px;
     margin: auto;
     padding-left: calc(2% + 1rem);
     padding-right: calc(2% + 1rem);
@@ -9,6 +9,8 @@
     height: fit-content;
 
     .card-container {
+        margin-top: 3rem;
+        margin-bottom: 3rem;
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
