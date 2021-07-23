@@ -16,7 +16,7 @@ class EventListAll(
         serializer = EventSerializer(events, many=True, context={"request": request})
         return Response(serializer.data, status=status.HTTP_200_OK)
 
-    def post(self, request): #POST REQUEST
+    def post(self, request):  # POST REQUEST
         serializer = self.serializer_class(data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
