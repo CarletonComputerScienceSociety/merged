@@ -93,7 +93,7 @@ class Event(NewsItem):
     organization = models.ManyToManyField(
         Organization
     )  # This links various members to single organisation
-    poster = models.ImageField(upload_to="event", null=True)
+    poster = models.ImageField(upload_to="event", null=True, blank=True)
 
     def __str__(self):
         return self.title
