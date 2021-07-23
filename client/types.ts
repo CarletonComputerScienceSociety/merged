@@ -4,4 +4,5 @@ export interface Event {
     body: string;
     start: string;
     end: string;
+    category: string;
 }
