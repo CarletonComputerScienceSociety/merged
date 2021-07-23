@@ -36,7 +36,7 @@ const Home = ({ data }: Props) => {
     },
     {
       value: 'hackathon',
-      label: 'Hacktathon'
+      label: 'Hackathon'
     }
   ]
 
@@ -51,7 +51,7 @@ const Home = ({ data }: Props) => {
         <div className="card-container">
           {
             data.map((event, index) => (
-              <EventCard key={index} title={event.title} date="27 May 2021" body={event.body}/>
+              <EventCard key={index} title={event.title} date="Sat, Aug 21, 2021 5:00 PM EDT" category={event.category}/>
             ))
           }
         </div>
