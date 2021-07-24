@@ -11,4 +11,5 @@ export interface Organization {
     id: number;
     title: string;
     description: string;
+    imgUrl: string;
 }
