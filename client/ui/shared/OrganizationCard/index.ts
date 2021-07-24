@@ -1,0 +1,1 @@
+export { OrganizationCard } from './OrganizationCard'
