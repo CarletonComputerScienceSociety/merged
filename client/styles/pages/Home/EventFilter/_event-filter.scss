@@ -4,6 +4,7 @@
     gap: 1.5rem;
     min-height: 2rem;
     margin-top: 1.75rem;
+    color: #6f7287;
 
     a {
         text-decoration: none;
@@ -22,11 +23,11 @@
 }
 
 .event-filter-option-selected {
-    color: #000000;
+    color: #000000 !important;
     border-bottom: 2px solid blue;
 }
 
 .event-filter-option-selected:hover {
-    color: #000000;
+    color: #000000 !important;
     border-bottom: 2px solid blue;
 }
