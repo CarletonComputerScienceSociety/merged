@@ -6,3 +6,9 @@ export interface Event {
     end: string;
     category: string;
 }
+
+export interface Organization {
+    id: number;
+    title: string;
+    description: string;
+}
