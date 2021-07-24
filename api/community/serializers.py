@@ -6,7 +6,7 @@ from rest_framework import serializers
 class EventSerializer(serializers.ModelSerializer):
     class Meta:
         model = Event
-        fields = ["id", "title"]
+        fields = ["id", "title", "description", "location", "link", "poster"]
 
 
 class OrganizationSerializer(serializers.ModelSerializer):
@@ -18,7 +18,7 @@ class OrganizationSerializer(serializers.ModelSerializer):
 class AnnouncementSerializer(serializers.ModelSerializer):
     class Meta:
         model = Announcement
-        fields = ["id", "title", "preview"]
+        fields = ["id", "title", "link", "preview"]
 
 
 class MemberSerializer(serializers.ModelSerializer):

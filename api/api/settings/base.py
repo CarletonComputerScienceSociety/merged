@@ -12,6 +12,9 @@ https://docs.djangoproject.com/en/3.2/ref/settings/
 
 from pathlib import Path
 import os
+from dotenv import load_dotenv
+
+load_dotenv()
 
 # Build paths inside the project like this: BASE_DIR / 'subdir'.
 BASE_DIR = Path(__file__).resolve().parent.parent
@@ -27,7 +30,6 @@ SECRET_KEY = "django-insecure-ztki+u&!a^9hkoo4&6&3ij73g6cho1irpg#-7s4hwr4m(1i$os
 DEBUG = True
 
 ALLOWED_HOSTS = []
-
 
 # Application definition
 
@@ -76,7 +78,7 @@ WSGI_APPLICATION = "api.wsgi.application"
 
 REST_FRAMEWORK = {
     "DEFAULT_PAGINATION_CLASS": "rest_framework.pagination.PageNumberPagination",
-    "PAGE_SIZE": 30,
+    "PAGE_SIZE": 12,
 }
 
 
@@ -117,6 +119,18 @@ USE_TZ = True
 # https://docs.djangoproject.com/en/3.2/howto/static-files/
 
 STATIC_URL = "/static/"
+
+# S3 configuration
+ACCESS_KEY = str(os.getenv("ACCESS_KEY"))
+SECRET_KEY = str(os.getenv("SECRET_KEY"))
+
+DEFAULT_FILE_STORAGE = "storages.backends.s3boto3.S3Boto3Storage"
+
+AWS_S3_ENDPOINT_URL = "http://minio.discretemath.ca/"
+AWS_ACCESS_KEY_ID = os.environ.get("ACCESS_KEY", "access-key")
+DEBUG = bool(os.environ.get("DJANGO_DEBUG", True))
+AWS_SECRET_ACCESS_KEY = os.environ.get("SECRET_KEY", "secret-key")
+AWS_STORAGE_BUCKET_NAME = os.environ.get("AWS_STORAGE_BUCKET_NAME", "communitytest")
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field

@@ -14,4 +14,8 @@ toml==0.10.2
 typed-ast==1.4.3
 typing-extensions==3.7.4.3
 drf_yasg
+django-storages
+Pillow
+boto3
+python-dotenv
 

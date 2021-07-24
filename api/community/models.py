@@ -29,8 +29,6 @@ class Announcement(NewsItem):
     )  # Represents the publication date
     link = models.CharField(max_length=300)  # Represents Link to the main announcement
 
-    preview = models.CharField(max_length=100)
-
     def __str__(self):
         return self.title
 
@@ -95,7 +93,7 @@ class Event(NewsItem):
     organization = models.ManyToManyField(
         Organization
     )  # This links various members to single organisation
-    description = models.CharField(max_length=100)
+    poster = models.ImageField(upload_to="event", null=True, blank=True)
 
     def __str__(self):
         return self.title
