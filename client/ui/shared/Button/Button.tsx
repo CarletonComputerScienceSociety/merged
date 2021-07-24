@@ -5,7 +5,7 @@ interface Props {
 };
 
 const Button = ({ text }: Props) => {
-  return <button>{text}</button>
+  return <button className="button">{text}</button>
 }
 
 export { Button }

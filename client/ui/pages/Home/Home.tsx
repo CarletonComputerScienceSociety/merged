@@ -1,6 +1,6 @@
 import React, { useState } from 'react'
 import { Event } from '../../../types'
-import { EventCard } from '../../shared'
+import { Button, EventCard } from '../../shared'
 import { HomeHeader } from './HomeHeader'
 import { EventFilter } from './EventFilter'
 
@@ -55,6 +55,7 @@ const Home = ({ data }: Props) => {
             ))
           }
         </div>
+        <Button text="Show More"/>
       </div>
     </div>
   )

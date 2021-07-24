@@ -7,10 +7,13 @@
     padding-right: calc(2% + 1rem);
     min-height: 90vh;
     height: fit-content;
+    display: flex;
+    flex-direction: column;
+    margin-bottom: 3rem;
 
     .card-container {
         margin-top: 3rem;
-        margin-bottom: 3rem;
+        margin-bottom: 4rem;
         display: flex;
         justify-content: space-between;
         flex-wrap: wrap;
