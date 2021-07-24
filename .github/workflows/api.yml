@@ -1,6 +1,9 @@
-name: Tests
+name: API
 
-on: [push]
+on:
+  push:
+    paths:
+      - "api/**"
 
 jobs:
   build:
