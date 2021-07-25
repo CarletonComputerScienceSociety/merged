@@ -1,21 +1,20 @@
 .home-header {
-    height: 60vh;
-    background-color: #8fddff;
-    // background-image: url("https://ccss.carleton.ca/ccss-website/images/event_posters/2020-2021/speed_friending.jpg");
-    background-repeat: no-repeat;
-    background-image: url(https://cdn.discordapp.com/attachments/422419584893845534/852700077675380756/geometry2.png);
-    background-repeat: repeat;
-    // background-size: cover;
-    margin-bottom: 1rem;
-    animation: slide 40s linear infinite;
+  height: 60vh;
+  background-color: #8fddff;
+  // background-image: url("https://ccss.carleton.ca/ccss-website/images/event_posters/2020-2021/speed_friending.jpg");
+  background-repeat: no-repeat;
+  background-image: url(https://cdn.discordapp.com/attachments/422419584893845534/852700077675380756/geometry2.png);
+  background-repeat: repeat;
+  // background-size: cover;
+  margin-bottom: 1rem;
+  animation: slide 40s linear infinite;
 }
 
-
 @keyframes slide {
-    from {
-      background-position: 0 0;
-    }
-    to {
-      background-position: -400px 0;
-    }
+  from {
+    background-position: 0 0;
   }
+  to {
+    background-position: -400px 0;
+  }
+}

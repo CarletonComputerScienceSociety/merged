@@ -1,24 +1,24 @@
-import * as React from 'react'
+import * as React from 'react';
 
 interface Props {
   title: string;
-  data: any[]
+  data: any[];
 }
 
 const Page = ({ title }: Props) => {
-  return <>event: {title}</>
-}
+  return <>event: {title}</>;
+};
 
 export const getServerSideProps = async ({ query }) => {
-  const { title } = query
-  const data = []
+  const { title } = query;
+  const data = [];
 
   return {
     props: {
       title: title,
       data: data
     }
-  }
-}
+  };
+};
 
-export default Page
+export default Page;

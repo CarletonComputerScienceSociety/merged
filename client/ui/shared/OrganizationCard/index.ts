@@ -1,1 +1,1 @@
-export { OrganizationCard } from './OrganizationCard'
+export { OrganizationCard } from './OrganizationCard';

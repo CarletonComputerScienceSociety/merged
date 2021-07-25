@@ -1,43 +1,43 @@
 .navbar {
-    position: sticky;
-    top: 0;
-    height: 60px;
-    background-color: white;
-    padding-left: calc(5% + 9px);
-    padding-right: calc(5% + 9px);
-    box-shadow: 0 4px 12px -4px rgb(0 0 0 / 5%);
-    display:flex;
-    justify-content: space-between;
-    z-index: 100;
+  position: sticky;
+  top: 0;
+  height: 60px;
+  background-color: white;
+  padding-left: calc(5% + 9px);
+  padding-right: calc(5% + 9px);
+  box-shadow: 0 4px 12px -4px rgb(0 0 0 / 5%);
+  display: flex;
+  justify-content: space-between;
+  z-index: 100;
 }
 
 .navbar-container {
-    max-width: 1200px;
-    width: 100%;
-    margin: auto;
-    padding-left: calc(2% + 1rem);
-    padding-right: calc(2% + 1rem);
-    display:flex;
-    justify-content: space-between;
+  max-width: 1200px;
+  width: 100%;
+  margin: auto;
+  padding-left: calc(2% + 1rem);
+  padding-right: calc(2% + 1rem);
+  display: flex;
+  justify-content: space-between;
 }
 
 .navbar-image {
-    margin: auto 0;
-    height: 2.1rem;
-    cursor: pointer;
+  margin: auto 0;
+  height: 2.1rem;
+  cursor: pointer;
 }
 
 .navbar-items {
-    display: flex;
-    align-items: center;
-    gap: 2.5rem;
+  display: flex;
+  align-items: center;
+  gap: 2.5rem;
 
-    a {
-        text-decoration: none;
-        color: #6f7287;
-    }
+  a {
+    text-decoration: none;
+    color: #6f7287;
+  }
 
-    a:hover {
-        color: black;
-    }
+  a:hover {
+    color: black;
+  }
 }

@@ -1,1 +1,1 @@
-export { EventCard } from './EventCard'
+export { EventCard } from './EventCard';

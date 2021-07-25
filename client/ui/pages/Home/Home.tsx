@@ -1,8 +1,8 @@
-import React, { useState } from 'react'
-import { Event } from '../../../types'
-import { Button, EventCard } from '../../shared'
-import { HomeHeader } from './HomeHeader'
-import { EventFilter } from './EventFilter'
+import React, { useState } from 'react';
+import { Event } from '../../../types';
+import { Button, EventCard } from '../../shared';
+import { HomeHeader } from './HomeHeader';
+import { EventFilter } from './EventFilter';
 
 interface Props {
   data: Event[];
@@ -38,13 +38,13 @@ const Home = ({ data }: Props) => {
       value: 'hackathon',
       label: 'Hackathon'
     }
-  ]
+  ];
 
-  const [selectedFilterOption, setSelectedFilterOption] = useState(0)
+  const [selectedFilterOption, setSelectedFilterOption] = useState(0);
 
   return (
     <div className="home-page">
-      <HomeHeader/>
+      <HomeHeader />
       <div className="page-wrap">
         <h1 id="events">Upcoming Events</h1>
         <EventFilter
@@ -53,21 +53,19 @@ const Home = ({ data }: Props) => {
           filterOptions={filterOptions}
         />
         <div className="card-container">
-          {
-            data.map((event, index) => (
-              <EventCard
-                key={index}
-                title={event.title}
-                date="Sat, Aug 21, 2021 5:00 PM EDT"
-                category={event.category}
-              />
-            ))
-          }
+          {data.map((event, index) => (
+            <EventCard
+              key={index}
+              title={event.title}
+              date="Sat, Aug 21, 2021 5:00 PM EDT"
+              category={event.category}
+            />
+          ))}
         </div>
-        <Button text="Show More"/>
+        <Button text="Show More" />
       </div>
     </div>
-  )
-}
+  );
+};
 
-export { Home }
+export { Home };
