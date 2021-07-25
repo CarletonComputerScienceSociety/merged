@@ -9,6 +9,6 @@ class EventEndpoints(APITestCase):
         Event.objects.create(title="test")
 
     def testUsersPost(self):
-        response = self.client.get("/api/v1/events/")
+        response = self.client.get("/api/events/")
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(len(response.json()), 1)
