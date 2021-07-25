@@ -7,9 +7,7 @@ interface Props {
   data: Organization[];
 }
 
-const Page = ({ data }: Props) => {
-  return <Organizations data={data} />;
-};
+const Page = ({ data }: Props) => <Organizations data={data} />;
 
 export const getServerSideProps = async () => {
   const data = await getOrganizations();

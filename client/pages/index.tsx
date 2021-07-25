@@ -8,9 +8,7 @@ interface Props {
   data: Event[];
 }
 
-const Page = ({ data }: Props) => {
-  return <Home data={data} />;
-};
+const Page = ({ data }: Props) => <Home data={data} />;
 
 export const getServerSideProps = async () => {
   const data = await getEvents();

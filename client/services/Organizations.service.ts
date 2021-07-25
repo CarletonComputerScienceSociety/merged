@@ -11,9 +11,8 @@ const getOrganizations = async (): Promise<Organization[]> => {
         Accept: 'application/json'
       }
     }).then(response => response.json());
-  } else {
-    return ORGANIZATIONS;
   }
+  return ORGANIZATIONS;
 };
 
 const getOrganizationByTitle = async (title: string): Promise<any> => {
@@ -26,9 +25,8 @@ const getOrganizationByTitle = async (title: string): Promise<any> => {
         Accept: 'application/json'
       }
     }).then(response => response.json());
-  } else {
-    return ORGANIZATIONS.find(Organization => Organization.title === title);
   }
+  return ORGANIZATIONS.find(Organization => Organization.title === title);
 };
 
 export { getOrganizations, getOrganizationByTitle };

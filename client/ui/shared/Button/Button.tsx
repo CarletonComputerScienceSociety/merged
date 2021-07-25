@@ -4,8 +4,6 @@ interface Props {
   text: string;
 }
 
-const Button = ({ text }: Props) => {
-  return <button className="button">{text}</button>;
-};
+const Button = ({ text }: Props) => <button className="button">{text}</button>;
 
 export { Button };

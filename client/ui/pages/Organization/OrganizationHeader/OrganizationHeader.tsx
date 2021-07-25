@@ -12,19 +12,18 @@ const OrganizationHeader = ({
   description,
   profileUrl,
   backgroundUrl
-}: Props) => {
-  return (
+}: Props) => (
     <div className="organization-header">
       <div
         className="organization-header-background"
-        style={{ backgroundImage: 'url("' + backgroundUrl + '")' }}
-      ></div>
+        style={{ backgroundImage: `url("${  backgroundUrl  }")` }}
+       />
       <div className="organization-header-bar">
         <div className="organization-header-bar-content">
           <div
             className="organization-header-image"
-            style={{ backgroundImage: 'url("' + profileUrl + '")' }}
-          ></div>
+            style={{ backgroundImage: `url("${  profileUrl  }")` }}
+           />
           <div className="organization-header-content">
             <div className="organization-header-content-title">{title}</div>
             <div className="organization-header-content-description">
@@ -35,6 +34,5 @@ const OrganizationHeader = ({
       </div>
     </div>
   );
-};
 
 export { OrganizationHeader };

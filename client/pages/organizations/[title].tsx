@@ -8,9 +8,7 @@ interface Props {
   events: Event[];
 }
 
-const Page = ({ organization, events }: Props) => {
-  return <OrganizationPage organization={organization} events={events} />;
-};
+const Page = ({ organization, events }: Props) => <OrganizationPage organization={organization} events={events} />;
 
 export const getServerSideProps = async ({ query }) => {
   const { title } = query;
@@ -19,8 +17,8 @@ export const getServerSideProps = async ({ query }) => {
 
   return {
     props: {
-      organization: organization,
-      events: events
+      organization,
+      events
     }
   };
 };
