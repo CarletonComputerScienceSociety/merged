@@ -12,4 +12,5 @@ export interface Organization {
     title: string;
     description: string;
     imgUrl: string;
+    backgroundUrl: string;
 }
