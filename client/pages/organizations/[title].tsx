@@ -1,23 +1,26 @@
 import * as React from 'react'
 import { Organization as OrganizationPage } from '../../ui/pages'
-import { Organization } from '../../types'
-import { getOrganizationByTitle } from '../../services'
+import { Organization, Event } from '../../types'
+import { getEvents, getOrganizationByTitle } from '../../services'
 
 interface Props {
-  data: Organization
+  organization: Organization,
+  events: Event[]
 }
 
-const Page = ({ data }: Props) => {
-  return <OrganizationPage data={data}/>
+const Page = ({ organization, events }: Props) => {
+  return <OrganizationPage organization={organization} events={events}/>
 }
 
 export const getServerSideProps = async ({ query }) => {
   const { title } = query
-  const data = await getOrganizationByTitle(title)
+  const organization = await getOrganizationByTitle(title)
+  const events = await getEvents()
 
   return {
     props: {
-      data: data
+      organization: organization,
+      events: events
     }
   }
 }

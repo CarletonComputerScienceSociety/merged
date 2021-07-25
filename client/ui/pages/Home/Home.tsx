@@ -46,12 +46,21 @@ const Home = ({ data }: Props) => {
     <div className="home-page">
       <HomeHeader/>
       <div className="page-wrap">
-      <h1 id="events">Upcoming Events</h1>
-      <EventFilter selectedFilterOption={selectedFilterOption} setSelectedFilterOption={setSelectedFilterOption} filterOptions={filterOptions}/>
+        <h1 id="events">Upcoming Events</h1>
+        <EventFilter
+          selectedFilterOption={selectedFilterOption}
+          setSelectedFilterOption={setSelectedFilterOption}
+          filterOptions={filterOptions}
+        />
         <div className="card-container">
           {
             data.map((event, index) => (
-              <EventCard key={index} title={event.title} date="Sat, Aug 21, 2021 5:00 PM EDT" category={event.category}/>
+              <EventCard
+                key={index}
+                title={event.title}
+                date="Sat, Aug 21, 2021 5:00 PM EDT"
+                category={event.category}
+              />
             ))
           }
         </div>

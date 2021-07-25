@@ -1,15 +1,35 @@
 import React from 'react'
-import { Organization } from '../../../types'
+import { Event, Organization } from '../../../types'
+import { EventCard } from '../../shared'
+import { OrganizationHeader } from './OrganizationHeader'
 
 interface Props {
-    data: Organization;
+    organization: Organization;
+    events: Event[]
 }
 
-const OrganizationPage = ({ data }: Props) => {
+const OrganizationPage = ({ organization, events }: Props) => {
   return (
-    <div className="home-page">
+    <div className="organization-page">
+      <OrganizationHeader
+        title={organization.title}
+        description={organization.description}
+        profileUrl={organization.imgUrl}
+        backgroundUrl={organization.backgroundUrl}
+      />
       <div className="page-wrap">
-        {JSON.stringify(data)}
+        <div className="card-container">
+          {
+            events.map((event, index) => (
+              <EventCard
+                key={index}
+                title={event.title}
+                date="Sat, Aug 21, 2021 5:00 PM EDT"
+                category={event.category}
+              />
+            ))
+          }
+        </div>
       </div>
     </div>
   )

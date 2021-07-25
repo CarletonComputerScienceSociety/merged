@@ -1,0 +1,64 @@
+.organization-header {
+    box-shadow: 0 4px 12px -4px rgb(0 0 0 / 5%);
+    position: relative;
+    width: 100vw;
+}
+
+.organization-header-background {
+    position: fixed;
+    top: 0;
+    left: 0;
+    height: 50vh;
+    width: 100vw;
+    background-color: #8fddff;
+    background-repeat: no-repeat;
+    // background-image: url(https://cdn.discordapp.com/attachments/422419584893845534/852700077675380756/geometry2.png);
+    background-repeat: repeat;
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
+}
+
+.organization-header-bar {
+  margin-top: 40vh;
+  background-color: white;
+  height: 5rem;
+  width: 100%;
+}
+.organization-header-bar-content {
+    max-width: 1200px;
+    margin: auto;
+    padding-left: calc(2% + 1rem);
+    padding-right: calc(2% + 1rem);
+    bottom: 0;
+    height: 100%;
+}
+
+.organization-header-image {
+    height: 6.5rem;
+    width: 6.5rem;
+    border-radius: 50%;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    margin-top: -3rem;
+    position: absolute;
+    border: 0.3rem solid #ffffff;
+}
+
+.organization-header-content {
+  margin-left: 9rem;
+  height: 100%;
+  padding: 1rem 0;
+}
+
+.organization-header-content-title {
+  font-weight: bold;
+  color: #2e2c3d;
+  margin-bottom: 0.34rem;
+}
+
+.organization-header-content-description {
+  color: #6f7287;
+  font-size: 0.9rem;
+}
