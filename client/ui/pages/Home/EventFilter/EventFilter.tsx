@@ -6,7 +6,8 @@ interface FilterOption {
 
 interface Props {
   selectedFilterOption: number;
-  setSelectedFilterOption: () => void;
+  // eslint-disable-next-line no-unused-vars
+  setSelectedFilterOption: (filterOption: number) => void;
   filterOptions: FilterOption[];
 }
 
