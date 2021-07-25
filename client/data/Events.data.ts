@@ -1,4 +1,4 @@
-import { Event } from '../types'
+import { Event } from '../types';
 
 const EVENTS: Event[] = [
   {
@@ -97,6 +97,6 @@ const EVENTS: Event[] = [
     end: '2017-01-01T00:00:00.000Z',
     category: 'Workshop'
   }
-]
+];
 
-export { EVENTS }
+export { EVENTS };

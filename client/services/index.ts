@@ -1,2 +1,2 @@
-export * from './Events.service'
-export * from './Organizations.service'
+export * from './Events.service';
+export * from './Organizations.service';

@@ -1,2 +1,2 @@
-export * from './Events.data'
-export * from './Organizations.data'
+export * from './Events.data';
+export * from './Organizations.data';
