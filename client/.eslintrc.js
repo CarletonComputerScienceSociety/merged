@@ -1,23 +1,27 @@
 module.exports = {
   env: {
     browser: true,
-    es2021: true
+    node: true,
+    es6: true
   },
-  extends: [
-    'plugin:react/recommended',
-    'standard'
-  ],
+  settings: {
+    react: {
+      version: 'detect'
+    }
+  },
+  extends: ['plugin:react/recommended', 'airbnb', 'prettier', 'prettier/react'],
   parser: '@typescript-eslint/parser',
   parserOptions: {
     ecmaFeatures: {
       jsx: true
     },
-    ecmaVersion: 12,
+    ecmaVersion: 2020,
     sourceType: 'module'
   },
   plugins: [
     'react',
-    '@typescript-eslint'
+    '@typescript-eslint',
+    'prettier'
   ],
   rules: {
     'no-undef': 'off',
