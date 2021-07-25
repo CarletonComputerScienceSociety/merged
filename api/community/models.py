@@ -1,3 +1,4 @@
+import shortuuid
 from django.db import models
 from django.db.models.base import Model
 
@@ -15,6 +16,9 @@ class Member(models.Model):
 
 
 class NewsItem(models.Model):
+    id = models.CharField(
+        primary_key=True, max_length=40, default=shortuuid.uuid(), editable=False
+    )
     title = models.CharField(
         max_length=100, default=""
     )  # Represents the Title of the Announcment/Event
