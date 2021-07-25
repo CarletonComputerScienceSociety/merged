@@ -13,13 +13,13 @@ const Organizations = ({ data }: Props) => {
       <div className="page-wrap">
         <div className="organization-card-container">
             {
-                data.map((organization, index) => (
-                    <Link key={index} href={{ pathname: '/organizations/' + organization.title }}>
-                        <a>
-                            <OrganizationCard title={organization.title} imgUrl={organization.imgUrl}/>
-                        </a>
-                    </Link>
-                ))
+              data.map((organization, index) => (
+                  <Link key={index} href={{ pathname: '/organizations/' + organization.title }}>
+                      <a>
+                          <OrganizationCard title={organization.title} imgUrl={organization.imgUrl}/>
+                      </a>
+                  </Link>
+              ))
             }
         </div>
       </div>

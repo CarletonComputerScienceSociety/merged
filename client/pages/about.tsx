@@ -1,8 +1,8 @@
-import * as React from 'react'
-import { About } from '../ui/pages'
+import * as React from 'react';
+import { About } from '../ui/pages';
 
 const Page = () => {
-  return <About/>
-}
+  return <About />;
+};
 
-export default Page
+export default Page;
