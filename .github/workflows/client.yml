@@ -18,6 +18,10 @@ jobs:
         run: |
           cd client
           yarn run check
+      - name: Run ESLint
+        run: |
+          cd client
+          yarn run eslint "**/*.{js,ts,tsx}"
       - name: Run Jest
         run: |
           cd client
