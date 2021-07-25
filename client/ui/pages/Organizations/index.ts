@@ -1,1 +1,1 @@
-export { Organizations } from './Organizations'
+export { Organizations } from './Organizations';

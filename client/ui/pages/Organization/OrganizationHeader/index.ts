@@ -1,1 +1,1 @@
-export { OrganizationHeader } from './OrganizationHeader'
+export { OrganizationHeader } from './OrganizationHeader';

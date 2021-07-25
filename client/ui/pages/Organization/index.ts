@@ -1,1 +1,1 @@
-export { OrganizationPage as Organization } from './Organization'
+export { OrganizationPage as Organization } from './Organization';

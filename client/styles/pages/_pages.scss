@@ -3,27 +3,27 @@
 @import './Organizations/organizations';
 
 .page-wrap {
-    max-width: 1200px;
-    margin: auto;
-    padding-left: calc(2% + 1rem);
-    padding-right: calc(2% + 1rem);
-    min-height: 90vh;
-    height: fit-content;
+  max-width: 1200px;
+  margin: auto;
+  padding-left: calc(2% + 1rem);
+  padding-right: calc(2% + 1rem);
+  min-height: 90vh;
+  height: fit-content;
+  display: flex;
+  flex-direction: column;
+  margin-bottom: 3rem;
+
+  .card-container {
+    margin-top: 3rem;
+    margin-bottom: 4rem;
     display: flex;
-    flex-direction: column;
-    margin-bottom: 3rem;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 2rem;
+  }
 
-    .card-container {
-        margin-top: 3rem;
-        margin-bottom: 4rem;
-        display: flex;
-        justify-content: space-between;
-        flex-wrap: wrap;
-        gap: 2rem;
-    }
-
-    a {
-        color: inherit;
-        text-decoration: none;
-    }
+  a {
+    color: inherit;
+    text-decoration: none;
+  }
 }

@@ -1,1 +1,1 @@
-export { EventFilter } from './EventFilter'
+export { EventFilter } from './EventFilter';
