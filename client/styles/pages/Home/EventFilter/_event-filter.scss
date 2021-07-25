@@ -18,16 +18,16 @@
 
 .event-filter-option:hover {
   color: black;
-  padding-bottom: 0.5rem;
-  border-bottom: 2px solid #000000;
+  padding-bottom: 0.4rem;
+  border-bottom: 3px solid #000000;
 }
 
 .event-filter-option-selected {
   color: #000000 !important;
-  border-bottom: 2px solid blue;
+  border-bottom: 3px solid $theme;
 }
 
 .event-filter-option-selected:hover {
   color: #000000 !important;
-  border-bottom: 2px solid blue;
+  border-bottom: 3px solid $theme;
 }
