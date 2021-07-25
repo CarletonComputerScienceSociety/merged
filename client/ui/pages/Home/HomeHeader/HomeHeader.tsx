@@ -1,7 +1,5 @@
 import React from 'react';
 
-const HomeHeader = () => {
-  return <div className="home-header"></div>;
-};
+const HomeHeader = () => <div className="home-header" />;
 
 export { HomeHeader };

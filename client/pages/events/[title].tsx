@@ -5,9 +5,7 @@ interface Props {
   data: any[];
 }
 
-const Page = ({ title }: Props) => {
-  return <>event: {title}</>;
-};
+const Page = ({ title }: Props) => <>event: {title}</>;
 
 export const getServerSideProps = async ({ query }) => {
   const { title } = query;
@@ -15,8 +13,8 @@ export const getServerSideProps = async ({ query }) => {
 
   return {
     props: {
-      title: title,
-      data: data
+      title,
+      data
     }
   };
 };

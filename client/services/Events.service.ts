@@ -11,9 +11,8 @@ const getEvents = async (): Promise<Event[]> => {
         Accept: 'application/json'
       }
     }).then(response => response.json());
-  } else {
-    return EVENTS;
   }
+  return EVENTS;
 };
 
 export { getEvents };
