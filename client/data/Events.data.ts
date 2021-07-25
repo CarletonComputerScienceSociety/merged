@@ -7,7 +7,9 @@ const EVENTS: Event[] = [
     body: 'test body',
     start: '2017-01-01T00:00:00.000Z',
     end: '2017-01-01T00:00:00.000Z',
-    category: 'Workshop'
+    category: 'Workshop',
+    poster:
+      'https://ccss.carleton.ca/ccss-website/images/event_posters/2020-2021/blockchain_qa.jpg'
   },
   {
     id: 2,
@@ -15,7 +17,9 @@ const EVENTS: Event[] = [
     body: 'test body',
     start: '2017-01-01T00:00:00.000Z',
     end: '2017-01-01T00:00:00.000Z',
-    category: 'Workshop'
+    category: 'Workshop',
+    poster:
+      'https://ccss.carleton.ca/ccss-website/images/event_posters/2020-2021/science_society_super_social.jpg'
   },
   {
     id: 3,
@@ -23,7 +27,9 @@ const EVENTS: Event[] = [
     body: 'test body',
     start: '2017-01-01T00:00:00.000Z',
     end: '2017-01-01T00:00:00.000Z',
-    category: 'Workshop'
+    category: 'Workshop',
+    poster:
+      'https://ccss.carleton.ca/ccss-website/images/event_posters/2020-2021/speed_friending.jpg'
   },
   {
     id: 4,
@@ -31,7 +37,9 @@ const EVENTS: Event[] = [
     body: 'test body',
     start: '2017-01-01T00:00:00.000Z',
     end: '2017-01-01T00:00:00.000Z',
-    category: 'Workshop'
+    category: 'Workshop',
+    poster:
+      'https://ccss.carleton.ca/ccss-website/images/event_posters/2020-2021/prof_social_winter.jpg'
   },
   {
     id: 5,
@@ -39,7 +47,9 @@ const EVENTS: Event[] = [
     body: 'test body',
     start: '2017-01-01T00:00:00.000Z',
     end: '2017-01-01T00:00:00.000Z',
-    category: 'Workshop'
+    category: 'Workshop',
+    poster:
+      'https://ccss.carleton.ca/ccss-website/images/event_posters/2020-2021/become_a_senior_engineer.jpg'
   },
   {
     id: 6,
@@ -47,7 +57,9 @@ const EVENTS: Event[] = [
     body: 'test body',
     start: '2017-01-01T00:00:00.000Z',
     end: '2017-01-01T00:00:00.000Z',
-    category: 'Workshop'
+    category: 'Workshop',
+    poster:
+      'https://ccss.carleton.ca/ccss-website/images/event_posters/2020-2021/project_showcase_night.jpg'
   },
   {
     id: 7,
@@ -55,7 +67,9 @@ const EVENTS: Event[] = [
     body: 'test body',
     start: '2017-01-01T00:00:00.000Z',
     end: '2017-01-01T00:00:00.000Z',
-    category: 'Social'
+    category: 'Social',
+    poster:
+      'https://ccss.carleton.ca/ccss-website/images/event_posters/2020-2021/chat_with_ross_video.jpg'
   },
   {
     id: 8,
@@ -63,7 +77,9 @@ const EVENTS: Event[] = [
     body: 'test body',
     start: '2017-01-01T00:00:00.000Z',
     end: '2017-01-01T00:00:00.000Z',
-    category: 'Workshop'
+    category: 'Workshop',
+    poster:
+      'https://ccss.carleton.ca/ccss-website/images/event_posters/2020-2021/blockchain_qa.jpg'
   },
   {
     id: 9,
@@ -71,7 +87,9 @@ const EVENTS: Event[] = [
     body: 'test body',
     start: '2017-01-01T00:00:00.000Z',
     end: '2017-01-01T00:00:00.000Z',
-    category: 'Workshop'
+    category: 'Workshop',
+    poster:
+      'https://ccss.carleton.ca/ccss-website/images/event_posters/2020-2021/blockchain_qa.jpg'
   },
   {
     id: 10,
@@ -79,7 +97,9 @@ const EVENTS: Event[] = [
     body: 'test body',
     start: '2017-01-01T00:00:00.000Z',
     end: '2017-01-01T00:00:00.000Z',
-    category: 'Workshop'
+    category: 'Workshop',
+    poster:
+      'https://ccss.carleton.ca/ccss-website/images/event_posters/2020-2021/blockchain_qa.jpg'
   },
   {
     id: 11,
@@ -87,7 +107,9 @@ const EVENTS: Event[] = [
     body: 'test body',
     start: '2017-01-01T00:00:00.000Z',
     end: '2017-01-01T00:00:00.000Z',
-    category: 'Workshop'
+    category: 'Workshop',
+    poster:
+      'https://ccss.carleton.ca/ccss-website/images/event_posters/2020-2021/blockchain_qa.jpg'
   },
   {
     id: 12,
@@ -95,7 +117,9 @@ const EVENTS: Event[] = [
     body: 'test body',
     start: '2017-01-01T00:00:00.000Z',
     end: '2017-01-01T00:00:00.000Z',
-    category: 'Workshop'
+    category: 'Workshop',
+    poster:
+      'https://ccss.carleton.ca/ccss-website/images/event_posters/2020-2021/blockchain_qa.jpg'
   }
 ];
 
