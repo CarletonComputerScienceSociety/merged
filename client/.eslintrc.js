@@ -26,6 +26,15 @@ module.exports = {
   rules: {
     'no-undef': 'off',
     'no-use-before-define': 'off',
-    'react/react-in-jsx-scope': 'off'
+    'react/react-in-jsx-scope': 'off',
+    'react/jsx-filename-extension': 'off',
+    'import/prefer-default-export': 'off',
+    'jsx-a11y/anchor-is-valid': 'off',
+    'import/extensions': 'off',
+    'import/no-unresolved': 'off',
+    'react/no-array-index-key': 'off',
+    'import/no-extraneous-dependencies': 'off',
+    'react/jsx-props-no-spreading': 'off',
+    'react/button-has-type': 'off'
   }
 }

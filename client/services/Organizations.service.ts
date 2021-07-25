@@ -26,7 +26,7 @@ const getOrganizationByTitle = async (title: string): Promise<any> => {
       }
     }).then(response => response.json());
   }
-  return ORGANIZATIONS.find(Organization => Organization.title === title);
+  return ORGANIZATIONS.find(organization => organization.title === title);
 };
 
 export { getOrganizations, getOrganizationByTitle };
