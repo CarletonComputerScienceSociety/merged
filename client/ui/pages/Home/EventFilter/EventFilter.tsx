@@ -6,7 +6,7 @@ interface FilterOption {
 
 interface Props {
   selectedFilterOption: number;
-  setSelectedFilterOption: (filterOption: number) => void;
+  setSelectedFilterOption: () => void;
   filterOptions: FilterOption[];
 }
 
