@@ -1,6 +1,7 @@
-import shortuuid
+import uuid
 from django.db import models
 from django.db.models.base import Model
+from polymorphic.models import PolymorphicModel
 
 
 class Member(models.Model):
@@ -15,10 +16,8 @@ class Member(models.Model):
         return self.first_name + " " + self.last_name
 
 
-class NewsItem(models.Model):
-    id = models.CharField(
-        primary_key=True, max_length=40, default=shortuuid.uuid(), editable=False
-    )
+class NewsItem(PolymorphicModel):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     title = models.CharField(
         max_length=100, default=""
     )  # Represents the Title of the Announcment/Event

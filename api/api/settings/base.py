@@ -43,6 +43,7 @@ INSTALLED_APPS = [
     "community",
     "rest_framework",
     "drf_yasg",
+    "polymorphic",
 ]
 
 MIDDLEWARE = [
