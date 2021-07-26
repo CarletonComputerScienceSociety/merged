@@ -1,6 +1,7 @@
 from django.db.models import fields
 from community.models import Event, Organization, Member, Announcement, NewsItem
 from rest_framework import serializers
+from rest_polymorphic.serializers import PolymorphicSerializer
 
 
 class EventSerializer(serializers.ModelSerializer):
@@ -29,7 +30,8 @@ class MemberSerializer(serializers.ModelSerializer):
         fields = ["first_name", "last_name", "title", "email"]
 
 
-class NewsItemSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = NewsItem
-        fields = ["id", "title"]
+class NewsItemSerializer(PolymorphicSerializer):
+    model_serializer_mapping = {
+        Event: EventSerializer,
+        Announcement: AnnouncementSerializer,
+    }
