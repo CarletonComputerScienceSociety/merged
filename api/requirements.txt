@@ -42,3 +42,4 @@ typed-ast==1.4.3
 typing-extensions==3.7.4.3
 uritemplate==3.0.1
 urllib3==1.26.6
+django-filter==2.4.0

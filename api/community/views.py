@@ -2,17 +2,39 @@ from django.shortcuts import render
 from rest_framework.parsers import JSONParser
 from rest_framework import status, generics
 from rest_framework.response import Response
+from django_filters.rest_framework import DjangoFilterBackend
 from .models import *
 from .serializers import *
+from django_filters import rest_framework as filters
+
+'''
+Acronyms in TIME FILTER
+gte is for greater than equal to
+lte is for less than equal to
+'''
+
+class EventFilter(filters.FilterSet):
+    id = filters.UUIDFilter(field_name="id")
+    start_time = filters.DateTimeFilter(field_name='start_time',lookup_expr="gte")
+    end_time = filters.DateTimeFilter(field_name='end_time',lookup_expr="lte")
+
+    class Meta:
+        model = Event
+        fields = ['id','title','start_time','end_time','slugs']
 
 
 class EventListAll(
     generics.GenericAPIView
 ):  # List all job events, or create a new  event
+    queryset = Event.objects.all()
     serializer_class = EventSerializer
+    filter_backends = [DjangoFilterBackend]
+    filter_class = EventFilter
+    #filterset_fields = {'start_time':['gte', 'lte', 'exact', 'gt', 'lt']}
 
     def get(self, request):
-        events = Event.objects
+        events = self.get_queryset()
+        events = self.filter_queryset(events)
         serializer = EventSerializer(events, many=True, context={"request": request})
         return Response(serializer.data, status=status.HTTP_200_OK)
 
@@ -21,16 +43,6 @@ class EventListAll(
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
-
-
-class EventById(generics.GenericAPIView):  # List of events by ID
-    serializer_class = EventSerializer
-
-    def get(self, request, id):
-        event = Event.objects.filter(id=id)
-        serializer = EventSerializer(event, many=True)
-        return Response(serializer.data, status=status.HTTP_200_OK)
-
 
 class OrganizationListAll(generics.GenericAPIView):  # List all Organizations
     serializer_class = OrganizationSerializer
