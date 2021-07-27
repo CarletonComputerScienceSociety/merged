@@ -45,6 +45,7 @@ class OrganizationListAll(generics.GenericAPIView):  # List all Organizations
 class OrganizationListByTitle(generics.GenericAPIView):
     serializer_class = OrganizationSerializer
     query_pk_and_slug = True
+
     def get(self, request, title):
         event = Organization.objects.filter(title=title)
         serializer = OrganizationSerializer(event, many=True)
