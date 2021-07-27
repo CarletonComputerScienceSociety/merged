@@ -2,7 +2,9 @@ import uuid
 from django.db import models
 from django.db.models.base import Model
 from polymorphic.models import PolymorphicModel
-
+from django.conf import settings 
+from django.urls import reverse 
+from django.utils.text import slugify
 
 class Member(models.Model):
     first_name = models.CharField(max_length=200)  # Represents the members first name
@@ -70,7 +72,17 @@ class Organization(models.Model):
     announcements = models.ManyToManyField(
         Announcement, blank=True
     )  # This links various members to single organisation
-
+    slug = models.SlugField( 
+        default='', 
+        editable=False, 
+        unique=True, 
+    ) #Represents slug field for page 
+    
+    def save(self, *args, **kwargs): 
+        value = self.title 
+        self.slug = slugify(value, allow_unicode=True) 
+        super().save(*args, **kwargs)
+    
     def __str__(self):
         return self.title
 
