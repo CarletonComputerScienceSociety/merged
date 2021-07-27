@@ -15,12 +15,14 @@ lte is for less than equal to
 
 class EventFilter(filters.FilterSet):
     id = filters.UUIDFilter(field_name="id")
+    title = filters.CharFilter(field_name="title")
     start_time = filters.DateTimeFilter(field_name='start_time',lookup_expr="gte")
     end_time = filters.DateTimeFilter(field_name='end_time',lookup_expr="lte")
+    organization = filters.ModelChoiceFilter(field_name='organization', queryset=Organization.objects.all())
 
     class Meta:
         model = Event
-        fields = ['id','title','start_time','end_time','slugs']
+        fields = ['id','title','start_time','end_time','organization']
 
 
 class EventListAll(
@@ -30,7 +32,6 @@ class EventListAll(
     serializer_class = EventSerializer
     filter_backends = [DjangoFilterBackend]
     filter_class = EventFilter
-    #filterset_fields = {'start_time':['gte', 'lte', 'exact', 'gt', 'lt']}
 
     def get(self, request):
         events = self.get_queryset()
@@ -44,24 +45,24 @@ class EventListAll(
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
+class OrganizationFilter(filters.FilterSet):
+    id = filters.CharFilter(field_name="id")
+    title = filters.CharFilter(field_name="title")
+
+    class Meta:
+        model = Organization
+        fields = ['id','title']
+
 class OrganizationListAll(generics.GenericAPIView):  # List all Organizations
     serializer_class = OrganizationSerializer
-
+    queryset = Organization.objects.all()
+    filter_backends = [DjangoFilterBackend]
+    filter_class = OrganizationFilter
     def get(self, request):
-        organization = Organization.objects
+        organization = self.get_queryset()
+        organization = self.filter_queryset(organization)
         serializer = OrganizationSerializer(organization, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
-
-
-# List of Organizations by Title/Name
-class OrganizationListByTitle(generics.GenericAPIView):
-    serializer_class = OrganizationSerializer
-
-    def get(self, request, title):
-        event = Organization.objects.filter(title=title)
-        serializer = OrganizationSerializer(event, many=True)
-        return Response(serializer.data, status=status.HTTP_200_OK)
-
 
 class MembersList(generics.GenericAPIView):  # List all Members
     serializer_class = MemberSerializer
