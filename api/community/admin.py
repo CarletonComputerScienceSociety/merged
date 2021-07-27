@@ -10,6 +10,7 @@ class EventResource(admin.ModelAdmin):
 @admin.register(Organization)
 class Organization(admin.ModelAdmin):
     list_display = ["id", "title", "website"]
+    readonly_fields = ["slug"]
 
 
 @admin.register(Member)
