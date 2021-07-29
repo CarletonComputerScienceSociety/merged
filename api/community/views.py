@@ -7,22 +7,27 @@ from .models import *
 from .serializers import *
 from django_filters import rest_framework as filters
 
-'''
+"""
 Acronyms in TIME FILTER
 gte is for greater than equal to
 lte is for less than equal to
-'''
+"""
+
 
 class EventFilter(filters.FilterSet):
     id = filters.UUIDFilter(field_name="id")
     title = filters.CharFilter(field_name="title")
-    start_time = filters.DateTimeFilter(field_name='start_time',lookup_expr="gte")
-    end_time = filters.DateTimeFilter(field_name='end_time',lookup_expr="lte")
-    organization = filters.ModelChoiceFilter(field_name='organization', queryset=Organization.objects.all())
+    start_time = filters.DateTimeFilter(field_name="start_time", lookup_expr="gte")
+    end_time = filters.DateTimeFilter(field_name="end_time", lookup_expr="lte")
+    organization = filters.ModelChoiceFilter(
+        field_name="organization",
+        to_field_name="slug",
+        queryset=Organization.objects.all(),
+    )
 
     class Meta:
         model = Event
-        fields = ['id','title','start_time','end_time','organization']
+        fields = ["id", "title", "start_time", "end_time", "organization"]
 
 
 class EventListAll(
@@ -45,24 +50,28 @@ class EventListAll(
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
+
 class OrganizationFilter(filters.FilterSet):
     id = filters.CharFilter(field_name="id")
     title = filters.CharFilter(field_name="title")
 
     class Meta:
         model = Organization
-        fields = ['id','title']
+        fields = ["id", "title"]
+
 
 class OrganizationListAll(generics.GenericAPIView):  # List all Organizations
     serializer_class = OrganizationSerializer
     queryset = Organization.objects.all()
     filter_backends = [DjangoFilterBackend]
     filter_class = OrganizationFilter
+
     def get(self, request):
         organization = self.get_queryset()
         organization = self.filter_queryset(organization)
         serializer = OrganizationSerializer(organization, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
+
 
 class MembersList(generics.GenericAPIView):  # List all Members
     serializer_class = MemberSerializer
