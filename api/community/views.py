@@ -24,15 +24,13 @@ class EventFilter(filters.FilterSet):
         to_field_name="slug",
         queryset=Organization.objects.all(),
     )
-    #To add Category Filter
+    # To add Category Filter
     class Meta:
         model = Event
         fields = ["id", "title", "start_time", "end_time", "organization"]
 
 
-class EventList(
-    generics.GenericAPIView
-):  # List all job events, or create a new  event
+class EventList(generics.GenericAPIView):  # List all job events, or create a new  event
     queryset = Event.objects.all()
     serializer_class = EventSerializer
     filter_backends = [DjangoFilterBackend]
@@ -81,13 +79,18 @@ class MembersList(generics.GenericAPIView):  # List all Members
         serializer = MemberSerializer(member, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
+
 class AnnouncementFilter(filters.FilterSet):
     id = filters.UUIDFilter(field_name="id")
-    publication_date = filters.DateFilter(field_name="publication_date", lookup_expr="gte")
-    #To add Category Filter
+    publication_date = filters.DateFilter(
+        field_name="publication_date", lookup_expr="gte"
+    )
+    # To add Category Filter
     class Meta:
         model = Announcement
-        fields = ["id","publication_date"]
+        fields = ["id", "publication_date"]
+
+
 class AnnouncementList(generics.GenericAPIView):  # List all Announcements
     serializer_class = AnnouncementSerializer
     queryset = Announcement.objects.all()
@@ -100,18 +103,22 @@ class AnnouncementList(generics.GenericAPIView):  # List all Announcements
         serializer = AnnouncementSerializer(announcement, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
+
 class NewsItemFilter(filters.FilterSet):
     id = filters.UUIDFilter(field_name="id")
     title = filters.CharFilter(field_name="title")
-    #To add Category Filter
+    # To add Category Filter
     class Meta:
         model = NewsItem
         fields = ["id", "title"]
+
+
 class NewsItemList(generics.GenericAPIView):  # List all New Items
     serializer_class = NewsItemSerializer
     queryset = NewsItem.objects.all()
     filter_backends = [DjangoFilterBackend]
     filter_class = NewsItemFilter
+
     def get(self, request):
         newsitem = self.get_queryset()
         newsitem = self.filter_queryset(newsitem)
