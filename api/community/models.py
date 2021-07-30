@@ -22,7 +22,7 @@ class Member(models.Model):
 class NewsItem(PolymorphicModel):
     id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
     title = models.CharField(
-        max_length=100, default=""
+        max_length=100
     )  # Represents the Title of the Announcment/Event
 
 
@@ -33,7 +33,7 @@ class Announcement(NewsItem):
     publication_date = models.DateField(
         auto_now=False, auto_now_add=False
     )  # Represents the publication date
-    link = models.CharField(max_length=300)  # Represents Link to the main announcement
+    link = models.CharField(max_length=300,blank=True)  # Represents Link to the main announcement
 
     def __str__(self):
         return self.title
@@ -47,7 +47,7 @@ STATUS_CHOICES = (
 
 class Organization(models.Model):
     title = models.CharField(
-        max_length=150, blank=True
+        max_length=150
     )  # Represents the title of the Organization
     description = models.TextField(
         null=True, blank=True
@@ -101,7 +101,7 @@ class Event(NewsItem):
     location = models.TextField(
         max_length=200, null=True, blank=True
     )  # Represents location of Event
-    link = models.CharField(max_length=300)  # Represents the event link
+    link = models.CharField(max_length=300,blank=True)  # Represents the event link
     status = models.CharField(
         max_length=12, choices=STATUS_CHOICES, default="in planning"
     )
