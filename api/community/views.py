@@ -5,6 +5,7 @@ from rest_framework.response import Response
 from django_filters.rest_framework import DjangoFilterBackend
 from .models import *
 from .serializers import *
+from .paginations import *
 from django_filters import rest_framework as filters
 
 """
@@ -12,7 +13,6 @@ Acronyms in TIME FILTER
 gte is for greater than equal to
 lte is for less than equal to
 """
-
 
 class EventFilter(filters.FilterSet):
     id = filters.UUIDFilter(field_name="id")
@@ -29,17 +29,19 @@ class EventFilter(filters.FilterSet):
         model = Event
         fields = ["id", "title", "start_time", "end_time", "organization"]
 
-
 class EventList(generics.GenericAPIView):  # List all job events, or create a new  event
     queryset = Event.objects.all()
     serializer_class = EventSerializer
+    pagination_class = CustomPagination
     filter_backends = [DjangoFilterBackend]
     filter_class = EventFilter
 
     def get(self, request):
         events = self.get_queryset()
         events = self.filter_queryset(events)
-        serializer = EventSerializer(events, many=True, context={"request": request})
+        paginator = CustomPagination()
+        result_page = paginator.paginate_queryset(events, request)
+        serializer = EventSerializer(result_page, many=True, context={"request": request})
         return Response(serializer.data, status=status.HTTP_200_OK)
 
     def post(self, request):  # POST REQUEST
@@ -72,11 +74,14 @@ class OrganizationList(generics.GenericAPIView):  # List all Organizations
 
 
 class MembersList(generics.GenericAPIView):  # List all Members
+    queryset = Member.objects.all()
     serializer_class = MemberSerializer
-
+    pagination_class = CustomPagination
     def get(self, request):
-        member = Member.objects
-        serializer = MemberSerializer(member, many=True)
+        member = self.get_queryset()
+        paginator = CustomPagination()
+        result_page = paginator.paginate_queryset(member, request)
+        serializer = MemberSerializer(result_page, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
 
@@ -92,15 +97,18 @@ class AnnouncementFilter(filters.FilterSet):
 
 
 class AnnouncementList(generics.GenericAPIView):  # List all Announcements
-    serializer_class = AnnouncementSerializer
     queryset = Announcement.objects.all()
+    serializer_class = AnnouncementSerializer
+    pagination_class = CustomPagination
     filter_backends = [DjangoFilterBackend]
     filter_class = AnnouncementFilter
 
     def get(self, request):
         announcement = self.get_queryset()
         announcement = self.filter_queryset(announcement)
-        serializer = AnnouncementSerializer(announcement, many=True)
+        paginator = CustomPagination()
+        result_page = paginator.paginate_queryset(announcement, request)
+        serializer = AnnouncementSerializer(result_page, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
 
@@ -116,11 +124,14 @@ class NewsItemFilter(filters.FilterSet):
 class NewsItemList(generics.GenericAPIView):  # List all New Items
     serializer_class = NewsItemSerializer
     queryset = NewsItem.objects.all()
+    pagination_class = CustomPagination
     filter_backends = [DjangoFilterBackend]
     filter_class = NewsItemFilter
 
     def get(self, request):
         newsitem = self.get_queryset()
         newsitem = self.filter_queryset(newsitem)
-        serializer = NewsItemSerializer(newsitem, many=True)
+        paginator = CustomPagination()
+        result_page = paginator.paginate_queryset(newsitem, request)
+        serializer = NewsItemSerializer(result_page, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
