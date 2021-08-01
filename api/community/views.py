@@ -14,6 +14,7 @@ gte is for greater than equal to
 lte is for less than equal to
 """
 
+
 class EventFilter(filters.FilterSet):
     id = filters.UUIDFilter(field_name="id")
     title = filters.CharFilter(field_name="title")
@@ -29,6 +30,7 @@ class EventFilter(filters.FilterSet):
         model = Event
         fields = ["id", "title", "start_time", "end_time", "organization"]
 
+
 class EventList(generics.GenericAPIView):  # List all job events, or create a new  event
     queryset = Event.objects.all()
     serializer_class = EventSerializer
@@ -41,7 +43,9 @@ class EventList(generics.GenericAPIView):  # List all job events, or create a ne
         events = self.filter_queryset(events)
         paginator = CustomPagination()
         result_page = paginator.paginate_queryset(events, request)
-        serializer = EventSerializer(result_page, many=True, context={"request": request})
+        serializer = EventSerializer(
+            result_page, many=True, context={"request": request}
+        )
         return Response(serializer.data, status=status.HTTP_200_OK)
 
     def post(self, request):  # POST REQUEST
@@ -77,6 +81,7 @@ class MembersList(generics.GenericAPIView):  # List all Members
     queryset = Member.objects.all()
     serializer_class = MemberSerializer
     pagination_class = CustomPagination
+
     def get(self, request):
         member = self.get_queryset()
         paginator = CustomPagination()
