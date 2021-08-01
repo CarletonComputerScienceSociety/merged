@@ -2,17 +2,43 @@ from django.shortcuts import render
 from rest_framework.parsers import JSONParser
 from rest_framework import status, generics
 from rest_framework.response import Response
+from django_filters.rest_framework import DjangoFilterBackend
 from .models import *
 from .serializers import *
+from django_filters import rest_framework as filters
+
+"""
+Acronyms in TIME FILTER
+gte is for greater than equal to
+lte is for less than equal to
+"""
 
 
-class EventListAll(
-    generics.GenericAPIView
-):  # List all job events, or create a new  event
+class EventFilter(filters.FilterSet):
+    id = filters.UUIDFilter(field_name="id")
+    title = filters.CharFilter(field_name="title")
+    start_time = filters.DateTimeFilter(field_name="start_time", lookup_expr="gte")
+    end_time = filters.DateTimeFilter(field_name="end_time", lookup_expr="lte")
+    organization = filters.ModelChoiceFilter(
+        field_name="organization",
+        to_field_name="slug",
+        queryset=Organization.objects.all(),
+    )
+    # To add Category Filter
+    class Meta:
+        model = Event
+        fields = ["id", "title", "start_time", "end_time", "organization"]
+
+
+class EventList(generics.GenericAPIView):  # List all job events, or create a new  event
+    queryset = Event.objects.all()
     serializer_class = EventSerializer
+    filter_backends = [DjangoFilterBackend]
+    filter_class = EventFilter
 
     def get(self, request):
-        events = Event.objects
+        events = self.get_queryset()
+        events = self.filter_queryset(events)
         serializer = EventSerializer(events, many=True, context={"request": request})
         return Response(serializer.data, status=status.HTTP_200_OK)
 
@@ -23,31 +49,25 @@ class EventListAll(
         return Response(serializer.data, status=status.HTTP_201_CREATED)
 
 
-class EventById(generics.GenericAPIView):  # List of events by ID
-    serializer_class = EventSerializer
+class OrganizationFilter(filters.FilterSet):
+    id = filters.CharFilter(field_name="id")
+    title = filters.CharFilter(field_name="title")
 
-    def get(self, request, id):
-        event = Event.objects.filter(id=id)
-        serializer = EventSerializer(event, many=True)
-        return Response(serializer.data, status=status.HTTP_200_OK)
+    class Meta:
+        model = Organization
+        fields = ["id", "title"]
 
 
-class OrganizationListAll(generics.GenericAPIView):  # List all Organizations
+class OrganizationList(generics.GenericAPIView):  # List all Organizations
     serializer_class = OrganizationSerializer
+    queryset = Organization.objects.all()
+    filter_backends = [DjangoFilterBackend]
+    filter_class = OrganizationFilter
 
     def get(self, request):
-        organization = Organization.objects
+        organization = self.get_queryset()
+        organization = self.filter_queryset(organization)
         serializer = OrganizationSerializer(organization, many=True)
-        return Response(serializer.data, status=status.HTTP_200_OK)
-
-
-# List of Organizations by Title/Name
-class OrganizationListByTitle(generics.GenericAPIView):
-    serializer_class = OrganizationSerializer
-
-    def get(self, request, title):
-        event = Organization.objects.filter(title=title)
-        serializer = OrganizationSerializer(event, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
 
@@ -60,19 +80,47 @@ class MembersList(generics.GenericAPIView):  # List all Members
         return Response(serializer.data, status=status.HTTP_200_OK)
 
 
+class AnnouncementFilter(filters.FilterSet):
+    id = filters.UUIDFilter(field_name="id")
+    publication_date = filters.DateFilter(
+        field_name="publication_date", lookup_expr="gte"
+    )
+    # To add Category Filter
+    class Meta:
+        model = Announcement
+        fields = ["id", "publication_date"]
+
+
 class AnnouncementList(generics.GenericAPIView):  # List all Announcements
     serializer_class = AnnouncementSerializer
+    queryset = Announcement.objects.all()
+    filter_backends = [DjangoFilterBackend]
+    filter_class = AnnouncementFilter
 
     def get(self, request):
-        announcement = Announcement.objects
+        announcement = self.get_queryset()
+        announcement = self.filter_queryset(announcement)
         serializer = AnnouncementSerializer(announcement, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
 
+class NewsItemFilter(filters.FilterSet):
+    id = filters.UUIDFilter(field_name="id")
+    title = filters.CharFilter(field_name="title")
+    # To add Category Filter
+    class Meta:
+        model = NewsItem
+        fields = ["id", "title"]
+
+
 class NewsItemList(generics.GenericAPIView):  # List all New Items
     serializer_class = NewsItemSerializer
+    queryset = NewsItem.objects.all()
+    filter_backends = [DjangoFilterBackend]
+    filter_class = NewsItemFilter
 
     def get(self, request):
-        newsitem = NewsItem.objects
+        newsitem = self.get_queryset()
+        newsitem = self.filter_queryset(newsitem)
         serializer = NewsItemSerializer(newsitem, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)

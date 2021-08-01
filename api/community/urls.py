@@ -21,13 +21,11 @@ schema_view = get_schema_view(
 
 
 urlpatterns = [
-    path("events/", EventListAll.as_view()),
-    path("events/<id>", EventById.as_view(), name="id"),
-    path("organizations/", OrganizationListAll.as_view()),
-    path("organizations/<title>", OrganizationListByTitle.as_view(), name="title"),
-    path("members/", MembersList.as_view()),
-    path("announcements/", AnnouncementList.as_view()),
-    path("news/", NewsItemList.as_view()),
+    path("events/", EventList.as_view(), name="events"),
+    path("organizations/", OrganizationList.as_view(), name="organizations"),
+    path("members/", MembersList.as_view(), name="members"),
+    path("announcements/", AnnouncementList.as_view(), name="announcements"),
+    path("news/", NewsItemList.as_view(), name="news"),
     path("", schema_view.with_ui("swagger", cache_timeout=0), name="schema-swagger-ui"),
     path("redoc/", schema_view.with_ui("redoc", cache_timeout=0), name="schema-redoc"),
 ]
