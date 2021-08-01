@@ -83,6 +83,7 @@ class Organization(models.Model):
         if self.slug == "":
             self.slug = slugify(self.title, allow_unicode=True)
         super().save(*args, **kwargs)
+        
 
     def __str__(self):
         return self.title

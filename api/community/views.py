@@ -1,3 +1,4 @@
+from django.db.models.query import QuerySet
 from django.shortcuts import render
 from rest_framework.parsers import JSONParser
 from rest_framework import status, generics
@@ -73,9 +74,15 @@ class OrganizationList(generics.GenericAPIView):  # List all Organizations
     def get(self, request):
         organization = self.get_queryset()
         organization = self.filter_queryset(organization)
-        serializer = OrganizationSerializer(organization, many=True)
+        serializer = OrganizationDetailSerializer(organization, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
+class OrganizationDetailsList(generics.GenericAPIView):  # List details of selected Organization
+    serializer_class = OrganizationDetailSerializer
+    def get(self, request,slug):
+        organization = Organization.objects.filter(slug=slug)
+        serializer = OrganizationDetailSerializer(organization, many=True)
+        return Response(serializer.data, status=status.HTTP_200_OK)
 
 class MembersList(generics.GenericAPIView):  # List all Members
     queryset = Member.objects.all()
@@ -88,7 +95,6 @@ class MembersList(generics.GenericAPIView):  # List all Members
         result_page = paginator.paginate_queryset(member, request)
         serializer = MemberSerializer(result_page, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
-
 
 class AnnouncementFilter(filters.FilterSet):
     id = filters.UUIDFilter(field_name="id")

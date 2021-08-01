@@ -24,6 +24,12 @@ class OrganizationSerializer(serializers.ModelSerializer):
         model = Organization
         fields = ["id", "title", "description"]
 
+class OrganizationDetailSerializer(serializers.ModelSerializer):
+    organization_event = serializers.StringRelatedField(many=True)
+    class Meta:
+        model = Organization
+        fields = ["id", "title", "description","organization_event"]
+
 
 class AnnouncementSerializer(serializers.ModelSerializer):
     class Meta:
