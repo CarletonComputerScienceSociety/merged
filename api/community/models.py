@@ -108,7 +108,7 @@ class Event(NewsItem):
     )
     # Represents if the event is in planning or finalized
     organization = models.ManyToManyField(
-        Organization
+        Organization, related_name="events"
     )  # This links various members to single organisation
     poster = models.ImageField(upload_to="event", null=True, blank=True)
 
