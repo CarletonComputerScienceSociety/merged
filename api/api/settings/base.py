@@ -45,7 +45,7 @@ INSTALLED_APPS = [
     "drf_yasg",
     "polymorphic",
     "django_filters",
-    'django_extensions',
+    "django_extensions",
 ]
 
 MIDDLEWARE = [
