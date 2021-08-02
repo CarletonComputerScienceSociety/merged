@@ -22,14 +22,14 @@ class EventSerializer(serializers.ModelSerializer):
 class OrganizationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Organization
-        fields = ["id", "title", "description", "events"]
-        depth = 1
+        fields = ["id", "title", "description"]
+
 
 class OrganizationDetailSerializer(serializers.ModelSerializer):
-    organization_event = serializers.StringRelatedField(many=True)
     class Meta:
         model = Organization
-        fields = ["id", "title", "description","organization_event"]
+        fields = ["id", "title", "description", "events"]
+        depth = 1
 
 
 class AnnouncementSerializer(serializers.ModelSerializer):
