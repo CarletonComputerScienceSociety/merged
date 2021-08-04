@@ -80,8 +80,8 @@ class Organization(models.Model):
     )  # Represents slug field for page
 
     def save(self, *args, **kwargs):
-        value = self.title
-        self.slug = slugify(value, allow_unicode=True)
+        if self.slug == "":
+            self.slug = slugify(self.title, allow_unicode=True)
         super().save(*args, **kwargs)
 
     def __str__(self):
