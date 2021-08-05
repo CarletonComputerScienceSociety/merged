@@ -1,6 +1,8 @@
 .home-header {
   height: 60vh;
-  background-color: #8fddff;
+  // height: fit-content;
+  //background-color: #f2f2f2;
+  //background-color: #fff0f34a;
   // background-image: url("https://ccss.carleton.ca/ccss-website/images/event_posters/2020-2021/speed_friending.jpg");
   background-repeat: no-repeat;
   background-image: url(https://cdn.discordapp.com/attachments/422419584893845534/852700077675380756/geometry2.png);
@@ -8,6 +10,51 @@
   // background-size: cover;
   margin-bottom: 1rem;
   animation: slide 40s linear infinite;
+  display: flex;
+  justify-content: center;
+}
+
+.home-header-inner {
+  margin: auto;
+  width: 100%;
+  max-width: 1200px;
+  height: 100%;
+  // background: gray;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding-left: calc(2% + 1rem);
+  padding-right: calc(2% + 1rem);
+
+  .home-header-title {
+    flex-basis: 50%;
+
+    .home-header-title-header {
+      font-size: 4rem;
+      font-weight: bold;
+      margin-bottom: 0.75rem;
+    }
+
+    .home-header-title-header-highlight {
+      color: $theme;
+    }
+
+    .home-header-title-body {
+      margin-bottom: 1.75rem;
+    }
+
+    font-size: 1.2rem;
+  }
+
+  .home-header-display {
+    flex-basis: 45%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+    height: 100%;
+    background: red;
+  }
 }
 
 @keyframes slide {
@@ -16,5 +63,33 @@
   }
   to {
     background-position: -400px 0;
+  }
+}
+
+@media only screen and (max-width: 1100px) {
+  .home-header-inner {
+    flex-direction: column;
+    justify-content: center;
+
+    .home-header-title {
+      flex-basis: 30%;
+      display: flex;
+      flex-direction: colun;
+      flex-direction: column;
+      justify-content: center;
+      align-items: center;
+      text-align: center;
+      max-width: 750px;
+    }
+
+    .home-header-display {
+      display: none;
+    }
+  }
+}
+
+@media only screen and (max-width: 600px) {
+  .home-header {
+    display: none;
   }
 }

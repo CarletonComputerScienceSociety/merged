@@ -62,3 +62,9 @@
   color: #6f7287;
   font-size: 0.9rem;
 }
+
+@media only screen and (max-width: 600px) {
+  .organization-header-bar {
+    margin-top: 27vh;
+  }
+}

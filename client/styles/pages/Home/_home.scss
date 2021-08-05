@@ -1,2 +1,8 @@
 @import './EventFilter/event-filter';
 @import './HomeHeader/home-header';
+
+@media only screen and (max-width: 600px) {
+  .home-h1 {
+    display: none;
+  }
+}
