@@ -20,7 +20,7 @@ const MobileNavbar = () => (
             <a>
                 <FontAwesomeIcon icon={faInfo} />
             </a>
-        </Link>   
+        </Link>
     </div>
   </div>
 );
