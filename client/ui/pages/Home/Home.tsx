@@ -46,7 +46,7 @@ const Home = ({ data }: Props) => {
     <div className="home-page">
       <HomeHeader />
       <div className="page-wrap">
-        <h1 id="events">Upcoming Events</h1>
+        <h1 id="events" className="home-h1">Upcoming Events</h1>
         <EventFilter
           selectedFilterOption={selectedFilterOption}
           setSelectedFilterOption={setSelectedFilterOption}

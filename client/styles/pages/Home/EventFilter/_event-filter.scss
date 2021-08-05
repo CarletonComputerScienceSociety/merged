@@ -5,6 +5,7 @@
   min-height: 2rem;
   margin-top: 1.75rem;
   color: #6f7287;
+  overflow: hidden;
 
   a {
     text-decoration: none;
@@ -14,6 +15,7 @@
 .event-filter-option {
   color: #6f7287;
   cursor: pointer;
+  min-width: fit-content;
 }
 
 .event-filter-option:hover {
