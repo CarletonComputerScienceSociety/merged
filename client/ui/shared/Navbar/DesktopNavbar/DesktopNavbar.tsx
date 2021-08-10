@@ -9,7 +9,7 @@ const DesktopNavbar = () => (
           <img
             className="navbar-image"
             alt="logo"
-            src="https://i.imgur.com/Dj7CfSb.png"
+            src="https://i.imgur.com/uusT5cG.png"
           />
         </a>
       </Link>
