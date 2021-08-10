@@ -1,7 +1,6 @@
 import React, { useState } from 'react';
 import { Event } from '../../../types';
 import { Button, EventCard } from '../../shared';
-import { HomeHeader } from './HomeHeader';
 import { EventFilter } from './EventFilter';
 
 interface Props {
@@ -44,7 +43,7 @@ const Home = ({ data }: Props) => {
 
   return (
     <div className="home-page">
-      <HomeHeader />
+      {/* <HomeHeader /> */}
       <div className="page-wrap">
         <h1 id="events" className="home-h1">Upcoming Events</h1>
         <EventFilter
