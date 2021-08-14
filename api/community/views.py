@@ -32,7 +32,7 @@ class EventFilter(filters.FilterSet):
 
 
 class EventList(generics.GenericAPIView):  # List all job events, or create a new  event
-    queryset = Event.objects.all().order_by('-start_time')
+    queryset = Event.objects.all().order_by("-start_time")
     serializer_class = EventSerializer
     pagination_class = CustomPagination
     filter_backends = [DjangoFilterBackend]
