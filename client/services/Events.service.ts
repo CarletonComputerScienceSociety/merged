@@ -2,10 +2,8 @@ import { Event } from '../types';
 import { EVENTS } from '../data';
 
 const getEvents = async (): Promise<Event[]> => {
-  // eslint-disable-next-line no-constant-condition
-  if (false) {
-    // ADD ENV VAR TO TELL US TO USE THE REAL BACKEND OR NO
-    return fetch('http://127.0.0.1:8000/api/v1/events/', {
+  if (process.env.USE_API === 'true') {
+    return fetch(`${process.env.API_URL}/api/events/?pagelimit=12`, {
       headers: {
         'Content-Type': 'application/json',
         Accept: 'application/json'
