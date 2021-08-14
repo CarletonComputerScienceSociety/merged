@@ -7,7 +7,7 @@ from rest_polymorphic.serializers import PolymorphicSerializer
 class EventSerializer(serializers.ModelSerializer):
     class Meta:
         model = Event
-        fields = ["id", "title", "description", "location", "link", "poster"]
+        fields = ["id", "title", "description", "start_time", "end_time", "location", "link", "poster"]
 
 
 class OrganizationSerializer(serializers.ModelSerializer):
