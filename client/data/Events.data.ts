@@ -29,7 +29,7 @@ const EVENTS: Event[] = [
     endTime: '2017-01-01T00:00:00.000Z',
     category: 'Workshop',
     poster:
-      'https://ccss.carleton.ca/images/event_posters/2020-2021/speed_friendTimeing.jpg'
+      'https://ccss.carleton.ca/images/event_posters/2020-2021/speed_friending.jpg'
   },
   {
     id: '1',
