@@ -2,124 +2,124 @@ import { Event } from '../types';
 
 const EVENTS: Event[] = [
   {
-    id: 1,
+    id: '1',
     title: 'Blockchain + Crypto Q&A Session',
     body: 'test body',
-    start: '2017-01-01T00:00:00.000Z',
-    end: '2017-01-01T00:00:00.000Z',
+    startTime: '2017-01-01T00:00:00.000Z',
+    endTime: '2017-01-01T00:00:00.000Z',
     category: 'Workshop',
     poster:
-      'https://ccss.carleton.ca/ccss-website/images/event_posters/2020-2021/blockchain_qa.jpg'
+      'https://ccss.carleton.ca/images/event_posters/2020-2021/blockchain_qa.jpg'
   },
   {
-    id: 2,
+    id: '1',
     title: 'Become a Senior Engineer in 2 years',
     body: 'test body',
-    start: '2017-01-01T00:00:00.000Z',
-    end: '2017-01-01T00:00:00.000Z',
+    startTime: '2017-01-01T00:00:00.000Z',
+    endTime: '2017-01-01T00:00:00.000Z',
     category: 'Workshop',
     poster:
-      'https://ccss.carleton.ca/ccss-website/images/event_posters/2020-2021/science_society_super_social.jpg'
+      'https://ccss.carleton.ca/images/event_posters/2020-2021/science_society_super_social.jpg'
   },
   {
-    id: 3,
+    id: '1',
     title: 'Blockchain and Cryptocurrency Landscape',
     body: 'test body',
-    start: '2017-01-01T00:00:00.000Z',
-    end: '2017-01-01T00:00:00.000Z',
+    startTime: '2017-01-01T00:00:00.000Z',
+    endTime: '2017-01-01T00:00:00.000Z',
     category: 'Workshop',
     poster:
-      'https://ccss.carleton.ca/ccss-website/images/event_posters/2020-2021/speed_friending.jpg'
+      'https://ccss.carleton.ca/images/event_posters/2020-2021/speed_friendTimeing.jpg'
   },
   {
-    id: 4,
+    id: '1',
     title: 'A Chat With Ross Video',
     body: 'test body',
-    start: '2017-01-01T00:00:00.000Z',
-    end: '2017-01-01T00:00:00.000Z',
+    startTime: '2017-01-01T00:00:00.000Z',
+    endTime: '2017-01-01T00:00:00.000Z',
     category: 'Workshop',
     poster:
-      'https://ccss.carleton.ca/ccss-website/images/event_posters/2020-2021/prof_social_winter.jpg'
+      'https://ccss.carleton.ca/images/event_posters/2020-2021/prof_social_winter.jpg'
   },
   {
-    id: 5,
+    id: '1',
     title: 'Vulnerabilities in Web Apps',
     body: 'test body',
-    start: '2017-01-01T00:00:00.000Z',
-    end: '2017-01-01T00:00:00.000Z',
+    startTime: '2017-01-01T00:00:00.000Z',
+    endTime: '2017-01-01T00:00:00.000Z',
     category: 'Workshop',
     poster:
-      'https://ccss.carleton.ca/ccss-website/images/event_posters/2020-2021/become_a_senior_engineer.jpg'
+      'https://ccss.carleton.ca/images/event_posters/2020-2021/become_a_senior_engineer.jpg'
   },
   {
-    id: 6,
+    id: '1',
     title: 'Declassified Online School Survival Guide',
     body: 'test body',
-    start: '2017-01-01T00:00:00.000Z',
-    end: '2017-01-01T00:00:00.000Z',
+    startTime: '2017-01-01T00:00:00.000Z',
+    endTime: '2017-01-01T00:00:00.000Z',
     category: 'Workshop',
     poster:
-      'https://ccss.carleton.ca/ccss-website/images/event_posters/2020-2021/project_showcase_night.jpg'
+      'https://ccss.carleton.ca/images/event_posters/2020-2021/project_showcase_night.jpg'
   },
   {
-    id: 7,
+    id: '1',
     title: 'Afternoon Among Us',
     body: 'test body',
-    start: '2017-01-01T00:00:00.000Z',
-    end: '2017-01-01T00:00:00.000Z',
+    startTime: '2017-01-01T00:00:00.000Z',
+    endTime: '2017-01-01T00:00:00.000Z',
     category: 'Social',
     poster:
-      'https://ccss.carleton.ca/ccss-website/images/event_posters/2020-2021/chat_with_ross_video.jpg'
+      'https://ccss.carleton.ca/images/event_posters/2020-2021/chat_with_ross_video.jpg'
   },
   {
-    id: 8,
+    id: '1',
     title: 'test',
     body: 'test body',
-    start: '2017-01-01T00:00:00.000Z',
-    end: '2017-01-01T00:00:00.000Z',
+    startTime: '2017-01-01T00:00:00.000Z',
+    endTime: '2017-01-01T00:00:00.000Z',
     category: 'Workshop',
     poster:
-      'https://ccss.carleton.ca/ccss-website/images/event_posters/2020-2021/blockchain_qa.jpg'
+      'https://ccss.carleton.ca/images/event_posters/2020-2021/blockchain_qa.jpg'
   },
   {
-    id: 9,
+    id: '1',
     title: 'test',
     body: 'test body',
-    start: '2017-01-01T00:00:00.000Z',
-    end: '2017-01-01T00:00:00.000Z',
+    startTime: '2017-01-01T00:00:00.000Z',
+    endTime: '2017-01-01T00:00:00.000Z',
     category: 'Workshop',
     poster:
-      'https://ccss.carleton.ca/ccss-website/images/event_posters/2020-2021/blockchain_qa.jpg'
+      'https://ccss.carleton.ca/images/event_posters/2020-2021/blockchain_qa.jpg'
   },
   {
-    id: 10,
+    id: '1',
     title: 'test',
     body: 'test body',
-    start: '2017-01-01T00:00:00.000Z',
-    end: '2017-01-01T00:00:00.000Z',
+    startTime: '2017-01-01T00:00:00.000Z',
+    endTime: '2017-01-01T00:00:00.000Z',
     category: 'Workshop',
     poster:
-      'https://ccss.carleton.ca/ccss-website/images/event_posters/2020-2021/blockchain_qa.jpg'
+      'https://ccss.carleton.ca/images/event_posters/2020-2021/blockchain_qa.jpg'
   },
   {
-    id: 11,
+    id: '1',
     title: 'test',
     body: 'test body',
-    start: '2017-01-01T00:00:00.000Z',
-    end: '2017-01-01T00:00:00.000Z',
+    startTime: '2017-01-01T00:00:00.000Z',
+    endTime: '2017-01-01T00:00:00.000Z',
     category: 'Workshop',
     poster:
-      'https://ccss.carleton.ca/ccss-website/images/event_posters/2020-2021/blockchain_qa.jpg'
+      'https://ccss.carleton.ca/images/event_posters/2020-2021/blockchain_qa.jpg'
   },
   {
-    id: 12,
+    id: '1',
     title: 'test',
     body: 'test body',
-    start: '2017-01-01T00:00:00.000Z',
-    end: '2017-01-01T00:00:00.000Z',
+    startTime: '2017-01-01T00:00:00.000Z',
+    endTime: '2017-01-01T00:00:00.000Z',
     category: 'Workshop',
     poster:
-      'https://ccss.carleton.ca/ccss-website/images/event_posters/2020-2021/blockchain_qa.jpg'
+      'https://ccss.carleton.ca/images/event_posters/2020-2021/blockchain_qa.jpg'
   }
 ];
 

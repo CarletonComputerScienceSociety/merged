@@ -1,9 +1,9 @@
 export interface Event {
-    id: number;
+    id: string;
     title: string;
     body: string;
-    start: string;
-    end: string;
+    startTime: string;
+    endTime: string;
     category: string;
     poster: string;
 }
