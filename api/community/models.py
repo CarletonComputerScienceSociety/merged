@@ -23,24 +23,6 @@ class Member(models.Model):
         return self.first_name + " " + self.last_name
 
 
-class NewsItem(PolymorphicModel):
-    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
-    title = models.CharField(max_length=100)
-    status = models.CharField(max_length=12, choices=STATUS_CHOICES, default="public")
-    external_link = models.CharField(max_length=300, blank=True)
-
-
-class Announcement(NewsItem):
-    excerpt = models.CharField(
-        max_length=150,
-        null=True,
-    )
-    publication_date = models.DateField(auto_now=False, auto_now_add=False)
-
-    def __str__(self):
-        return self.title
-
-
 class Organization(models.Model):
     title = models.CharField(max_length=150)
     description = models.TextField(null=True, blank=True)
@@ -50,7 +32,6 @@ class Organization(models.Model):
     discord = models.CharField(max_length=250, blank=True)
     slack = models.CharField(max_length=250, blank=True)
     members = models.ManyToManyField(Member, blank=True)
-    announcements = models.ManyToManyField(Announcement, blank=True)
     slug = models.SlugField(
         default="",
         editable=False,
@@ -66,6 +47,28 @@ class Organization(models.Model):
             self.slug = slugify(self.title, allow_unicode=True)
         super().save(*args, **kwargs)
 
+    def news_feed(self):
+        return self.news_items.all()[:12]
+
+    def __str__(self):
+        return self.title
+
+
+class NewsItem(PolymorphicModel):
+    id = models.UUIDField(primary_key=True, default=uuid.uuid4, editable=False)
+    title = models.CharField(max_length=100)
+    status = models.CharField(max_length=12, choices=STATUS_CHOICES, default="public")
+    external_link = models.CharField(max_length=300, blank=True)
+    organizations = models.ManyToManyField(Organization, related_name="news_items")
+
+
+class Announcement(NewsItem):
+    excerpt = models.CharField(
+        max_length=150,
+        null=True,
+    )
+    publication_date = models.DateField(auto_now=False, auto_now_add=False)
+
     def __str__(self):
         return self.title
 
@@ -75,7 +78,7 @@ class Event(NewsItem):
     start_time = models.DateTimeField(null=True, blank=True)
     end_time = models.DateTimeField(null=True, blank=True)
     location = models.CharField(max_length=100, null=True, blank=True)
-    organization = models.ManyToManyField(Organization, related_name="events")
+
     poster = models.ImageField(upload_to="event", null=True, blank=True)
 
     def __str__(self):
