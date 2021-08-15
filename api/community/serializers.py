@@ -25,6 +25,13 @@ class OrganizationSerializer(serializers.ModelSerializer):
         fields = ["id", "title", "description"]
 
 
+class OrganizationDetailSerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Organization
+        fields = ["id", "title", "description", "events"]
+        depth = 1
+
+
 class AnnouncementSerializer(serializers.ModelSerializer):
     class Meta:
         model = Announcement

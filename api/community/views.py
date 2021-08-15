@@ -1,3 +1,4 @@
+from django.db.models.query import QuerySet
 from django.shortcuts import render
 from rest_framework.parsers import JSONParser
 from rest_framework import status, generics
@@ -64,7 +65,8 @@ class OrganizationFilter(filters.FilterSet):
         fields = ["id", "title"]
 
 
-class OrganizationList(generics.GenericAPIView):  # List all Organizations
+# List all Organizations
+class OrganizationList(generics.ListAPIView):
     serializer_class = OrganizationSerializer
     queryset = Organization.objects.all()
     filter_backends = [DjangoFilterBackend]
@@ -77,8 +79,18 @@ class OrganizationList(generics.GenericAPIView):  # List all Organizations
         return Response(serializer.data, status=status.HTTP_200_OK)
 
 
-class MembersList(generics.GenericAPIView):  # List all Members
-    queryset = Member.objects.all()
+# List details of selected Organization
+class OrganizationDetailsList(generics.RetrieveAPIView):
+    serializer_class = OrganizationDetailSerializer
+
+    def get(self, request, slug):
+        organization = Organization.objects.get(slug=slug)
+        serializer = OrganizationDetailSerializer(organization, many=False)
+        return Response(serializer.data, status=status.HTTP_200_OK)
+
+
+# List all Members
+class MembersList(generics.ListAPIView):
     serializer_class = MemberSerializer
     pagination_class = CustomPagination
 
@@ -101,7 +113,9 @@ class AnnouncementFilter(filters.FilterSet):
         fields = ["id", "publication_date"]
 
 
-class AnnouncementList(generics.GenericAPIView):  # List all Announcements
+# List all Announcements
+class AnnouncementList(generics.ListAPIView):
+    serializer_class = AnnouncementSerializer
     queryset = Announcement.objects.all()
     serializer_class = AnnouncementSerializer
     pagination_class = CustomPagination
@@ -126,7 +140,8 @@ class NewsItemFilter(filters.FilterSet):
         fields = ["id", "title"]
 
 
-class NewsItemList(generics.GenericAPIView):  # List all New Items
+# List all New Items
+class NewsItemList(generics.ListAPIView):
     serializer_class = NewsItemSerializer
     queryset = NewsItem.objects.all()
     pagination_class = CustomPagination
