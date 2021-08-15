@@ -65,7 +65,8 @@ class OrganizationFilter(filters.FilterSet):
         fields = ["id", "title"]
 
 
-class OrganizationList(generics.GenericAPIView):  # List all Organizations
+# List all Organizations
+class OrganizationList(generics.ListAPIView):
     serializer_class = OrganizationSerializer
     queryset = Organization.objects.all()
     filter_backends = [DjangoFilterBackend]
@@ -74,23 +75,22 @@ class OrganizationList(generics.GenericAPIView):  # List all Organizations
     def get(self, request):
         organization = self.get_queryset()
         organization = self.filter_queryset(organization)
-        serializer = OrganizationDetailSerializer(organization, many=True)
+        serializer = OrganizationSerializer(organization, many=True)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
 
-class OrganizationDetailsList(
-    generics.GenericAPIView
-):  # List details of selected Organization
+# List details of selected Organization
+class OrganizationDetailsList(generics.RetrieveAPIView):
     serializer_class = OrganizationDetailSerializer
 
     def get(self, request, slug):
-        organization = Organization.objects.filter(slug=slug)
-        serializer = OrganizationDetailSerializer(organization, many=True)
+        organization = Organization.objects.get(slug=slug)
+        serializer = OrganizationDetailSerializer(organization, many=False)
         return Response(serializer.data, status=status.HTTP_200_OK)
 
 
-class MembersList(generics.GenericAPIView):  # List all Members
-    queryset = Member.objects.all()
+# List all Members
+class MembersList(generics.ListAPIView):
     serializer_class = MemberSerializer
     pagination_class = CustomPagination
 
@@ -113,7 +113,9 @@ class AnnouncementFilter(filters.FilterSet):
         fields = ["id", "publication_date"]
 
 
-class AnnouncementList(generics.GenericAPIView):  # List all Announcements
+# List all Announcements
+class AnnouncementList(generics.ListAPIView):
+    serializer_class = AnnouncementSerializer
     queryset = Announcement.objects.all()
     serializer_class = AnnouncementSerializer
     pagination_class = CustomPagination
@@ -138,7 +140,8 @@ class NewsItemFilter(filters.FilterSet):
         fields = ["id", "title"]
 
 
-class NewsItemList(generics.GenericAPIView):  # List all New Items
+# List all New Items
+class NewsItemList(generics.ListAPIView):
     serializer_class = NewsItemSerializer
     queryset = NewsItem.objects.all()
     pagination_class = CustomPagination
