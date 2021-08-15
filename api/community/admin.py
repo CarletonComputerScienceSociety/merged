@@ -20,9 +20,4 @@ class Member(admin.ModelAdmin):
 
 @admin.register(Announcement)
 class Announcement(admin.ModelAdmin):
-    list_display = ["id", "title", "preview", "link"]
-
-
-@admin.register(NewsItem)
-class NewsItem(admin.ModelAdmin):
-    list_display = ["id", "title"]
+    list_display = ["id", "title", "excerpt", "external_link"]
