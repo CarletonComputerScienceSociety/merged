@@ -14,7 +14,7 @@ class EventSerializer(serializers.ModelSerializer):
             "start_time",
             "end_time",
             "location",
-            "link",
+            "external_link",
             "poster",
         ]
 
@@ -35,7 +35,7 @@ class OrganizationDetailSerializer(serializers.ModelSerializer):
 class AnnouncementSerializer(serializers.ModelSerializer):
     class Meta:
         model = Announcement
-        fields = ["id", "title", "link", "preview"]
+        fields = ["id", "title", "external_link", "excerpt"]
 
 
 class MemberSerializer(serializers.ModelSerializer):
