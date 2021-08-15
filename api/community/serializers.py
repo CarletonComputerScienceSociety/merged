@@ -25,13 +25,6 @@ class OrganizationSerializer(serializers.ModelSerializer):
         fields = ["id", "title", "description"]
 
 
-class OrganizationDetailSerializer(serializers.ModelSerializer):
-    class Meta:
-        model = Organization
-        fields = ["id", "title", "description", "events"]
-        depth = 1
-
-
 class AnnouncementSerializer(serializers.ModelSerializer):
     class Meta:
         model = Announcement
@@ -51,3 +44,11 @@ class NewsItemSerializer(PolymorphicSerializer):
         Event: EventSerializer,
         Announcement: AnnouncementSerializer,
     }
+
+
+class OrganizationDetailSerializer(serializers.ModelSerializer):
+    news_items = NewsItemSerializer(many=True, required=False, source="news_feed")
+
+    class Meta:
+        model = Organization
+        fields = ["id", "title", "description", "news_items"]
