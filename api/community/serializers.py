@@ -22,7 +22,7 @@ class EventSerializer(serializers.ModelSerializer):
 class OrganizationSerializer(serializers.ModelSerializer):
     class Meta:
         model = Organization
-        fields = ["id", "title", "description"]
+        fields = ["id", "title", "description", "slug"]
 
 
 class AnnouncementSerializer(serializers.ModelSerializer):
@@ -51,4 +51,4 @@ class OrganizationDetailSerializer(serializers.ModelSerializer):
 
     class Meta:
         model = Organization
-        fields = ["id", "title", "description", "news_items"]
+        fields = ["id", "title", "description", "slug", "news_items"]
