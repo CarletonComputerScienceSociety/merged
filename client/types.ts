@@ -14,4 +14,19 @@ export interface Organization {
     description: string;
     imgUrl: string;
     backgroundUrl: string;
+    slug: string;
+}
+
+export interface OrganizationDetailed {
+    id: number;
+    title: string;
+    description: string;
+    imgUrl: string;
+    backgroundUrl: string;
+    slug: string;
+    newsItems: Array<any>
+}
+
+export interface Error {
+    message: string;
 }
