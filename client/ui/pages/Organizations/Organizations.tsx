@@ -14,7 +14,7 @@ const Organizations = ({ data }: Props) => (
         {data.map((organization, index) => (
           <Link
             key={index}
-            href={{ pathname: `/organizations/${  organization.title}` }}
+            href={{ pathname: `/organizations/${  organization.slug}` }}
           >
             <a>
               <OrganizationCard
