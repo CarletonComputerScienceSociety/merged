@@ -1,4 +1,4 @@
-import { Organization } from '../types';
+import { Organization, OrganizationDetailed, Error } from '../types';
 import { ORGANIZATIONS } from '../data';
 
 const getOrganizations = async (): Promise<Organization[]> => {
@@ -13,18 +13,15 @@ const getOrganizations = async (): Promise<Organization[]> => {
   return ORGANIZATIONS;
 };
 
-const getOrganizationByTitle = async (title: string): Promise<any> => {
-  // eslint-disable-next-line no-constant-condition
-  if (false) {
-    // ADD ENV VAR TO TELL US TO USE THE REAL BACKEND OR NO
-    return fetch('http://127.0.0.1:8000/api/v1/events/', {
-      headers: {
-        'Content-Type': 'application/json',
-        Accept: 'application/json'
-      }
-    }).then(response => response.json());
+const getOrganizationBySlug = async (
+  slug: string
+): Promise<OrganizationDetailed | Error | any> => {
+  if (process.env.USE_API === 'true') {
+    return fetch(`${process.env.API_URL}/api/organizations/${slug}`)
+      .then(response => response.json())
+      .then(data => data);
   }
-  return ORGANIZATIONS.find(organization => organization.title === title);
+  return ORGANIZATIONS.find(organization => organization.slug === slug);
 };
 
-export { getOrganizations, getOrganizationByTitle };
+export { getOrganizations, getOrganizationBySlug };
