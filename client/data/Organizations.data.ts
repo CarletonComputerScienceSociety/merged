@@ -1,6 +1,6 @@
-import { Organization } from '../types';
+import { OrganizationDetailed } from '../types';
 
-const ORGANIZATIONS: Organization[] = [
+const ORGANIZATIONS: OrganizationDetailed[] = [
   {
     id: 1,
     title: 'Carleton Computer Science Society',
@@ -8,7 +8,9 @@ const ORGANIZATIONS: Organization[] = [
       'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
     imgUrl: 'https://i.imgur.com/dhzJz7r.jpg',
     backgroundUrl:
-      'https://ccss.carleton.ca/ccss-website/images/slideshow/orientation.jpeg'
+      'https://ccss.carleton.ca/ccss-website/images/slideshow/orientation.jpeg',
+    slug: '1',
+    newsItems: []
   },
   {
     id: 2,
@@ -17,7 +19,9 @@ const ORGANIZATIONS: Organization[] = [
       'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
     imgUrl: 'https://ccss.carleton.ca/ccss-website/images/goodcuHacking.png',
     backgroundUrl:
-      'https://ccss.carleton.ca/ccss-website/images/slideshow/orientation.jpeg'
+      'https://ccss.carleton.ca/ccss-website/images/slideshow/orientation.jpeg',
+    slug: '2',
+    newsItems: []
   },
   {
     id: 3,
@@ -26,7 +30,9 @@ const ORGANIZATIONS: Organization[] = [
       'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
     imgUrl: 'https://ccss.carleton.ca/ccss-website/images/scesoc.png',
     backgroundUrl:
-      'https://ccss.carleton.ca/ccss-website/images/slideshow/orientation.jpeg'
+      'https://ccss.carleton.ca/ccss-website/images/slideshow/orientation.jpeg',
+    slug: '3',
+    newsItems: []
   },
   {
     id: 4,
@@ -35,7 +41,9 @@ const ORGANIZATIONS: Organization[] = [
       'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
     imgUrl: 'https://ccss.carleton.ca/ccss-website/images/wics.png',
     backgroundUrl:
-      'https://ccss.carleton.ca/ccss-website/images/slideshow/orientation.jpeg'
+      'https://ccss.carleton.ca/ccss-website/images/slideshow/orientation.jpeg',
+    slug: '4',
+    newsItems: []
   },
   {
     id: 5,
@@ -44,7 +52,9 @@ const ORGANIZATIONS: Organization[] = [
       'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
     imgUrl: 'https://ccss.carleton.ca/ccss-website/images/carletonai.png',
     backgroundUrl:
-      'https://ccss.carleton.ca/ccss-website/images/slideshow/orientation.jpeg'
+      'https://ccss.carleton.ca/ccss-website/images/slideshow/orientation.jpeg',
+    slug: '5',
+    newsItems: []
   },
   {
     id: 6,
@@ -53,7 +63,9 @@ const ORGANIZATIONS: Organization[] = [
       'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
     imgUrl: 'https://ccss.carleton.ca/ccss-website/images/blueprint.jpg',
     backgroundUrl:
-      'https://ccss.carleton.ca/ccss-website/images/slideshow/orientation.jpeg'
+      'https://ccss.carleton.ca/ccss-website/images/slideshow/orientation.jpeg',
+    slug: '6',
+    newsItems: []
   },
   {
     id: 7,
@@ -62,7 +74,9 @@ const ORGANIZATIONS: Organization[] = [
       'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
     imgUrl: 'https://ccss.carleton.ca/ccss-website/images/technolgap.png',
     backgroundUrl:
-      'https://ccss.carleton.ca/ccss-website/images/slideshow/orientation.jpeg'
+      'https://ccss.carleton.ca/ccss-website/images/slideshow/orientation.jpeg',
+    slug: '7',
+    newsItems: []
   },
   {
     id: 8,
@@ -71,7 +85,9 @@ const ORGANIZATIONS: Organization[] = [
       'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
     imgUrl: 'https://ccss.carleton.ca/ccss-website/images/webdev.png',
     backgroundUrl:
-      'https://ccss.carleton.ca/ccss-website/images/slideshow/orientation.jpeg'
+      'https://ccss.carleton.ca/ccss-website/images/slideshow/orientation.jpeg',
+    slug: '8',
+    newsItems: []
   },
   {
     id: 9,
@@ -80,7 +96,9 @@ const ORGANIZATIONS: Organization[] = [
       'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
     imgUrl: 'https://ccss.carleton.ca/ccss-website/images/eggx-long.png',
     backgroundUrl:
-      'https://ccss.carleton.ca/ccss-website/images/slideshow/orientation.jpeg'
+      'https://ccss.carleton.ca/ccss-website/images/slideshow/orientation.jpeg',
+    slug: '9',
+    newsItems: []
   },
   {
     id: 10,
@@ -89,7 +107,9 @@ const ORGANIZATIONS: Organization[] = [
       'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
     imgUrl: 'https://bitsoc.ca/assets/Logo.png',
     backgroundUrl:
-      'https://ccss.carleton.ca/ccss-website/images/slideshow/orientation.jpeg'
+      'https://ccss.carleton.ca/ccss-website/images/slideshow/orientation.jpeg',
+    slug: '10',
+    newsItems: []
   },
   {
     id: 11,
@@ -98,7 +118,9 @@ const ORGANIZATIONS: Organization[] = [
       'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
     imgUrl: 'https://carletoncybersecurityclub.github.io/assets/images/1.png',
     backgroundUrl:
-      'https://ccss.carleton.ca/ccss-website/images/slideshow/orientation.jpeg'
+      'https://ccss.carleton.ca/ccss-website/images/slideshow/orientation.jpeg',
+    slug: '11',
+    newsItems: []
   },
   {
     id: 12,
@@ -107,7 +129,9 @@ const ORGANIZATIONS: Organization[] = [
       'Lorem Ipsum is simply dummy text of the printing and typesetting industry.',
     imgUrl: 'https://ccss.carleton.ca/ccss-website/images/blueprint.jpg',
     backgroundUrl:
-      'https://ccss.carleton.ca/ccss-website/images/slideshow/orientation.jpeg'
+      'https://ccss.carleton.ca/ccss-website/images/slideshow/orientation.jpeg',
+    slug: '12',
+    newsItems: []
   }
 ];
 
