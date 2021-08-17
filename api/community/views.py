@@ -87,12 +87,11 @@ class OrganizationDetailsList(generics.RetrieveAPIView):
         try:
             organization = Organization.objects.get(slug=slug)
             serializer = OrganizationDetailSerializer(organization, many=False)
-            return Response(serializer.data, status=status.HTTP_200_OK)
+            fianl_data = {"data":serializer.data,"errors":{}}
+            return Response(fianl_data, status=status.HTTP_200_OK)
         except Organization.DoesNotExist:
-            return Response(
-                {"status": "false", "message": "ERROR: Organization not found"},
-                status=status.HTTP_500_INTERNAL_SERVER_ERROR,
-            )
+            fianl_data = {"data":{},"errors":"Organization not found"}
+            return Response(fianl_data, status=status.HTTP_404_NOT_FOUND)
 
 
 # List all Members
