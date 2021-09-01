@@ -1,6 +1,6 @@
 import React from 'react';
 import Link from 'next/link';
-import { faHome, faUsers, faInfo } from '@fortawesome/free-solid-svg-icons'
+import { faHome, faInfo } from '@fortawesome/free-solid-svg-icons'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
 
 const MobileNavbar = () => (
@@ -11,11 +11,13 @@ const MobileNavbar = () => (
                 <FontAwesomeIcon icon={faHome} />
             </a>
         </Link>
+        {/*
         <Link href="/organizations">
             <a>
                 <FontAwesomeIcon icon={faUsers} />
             </a>
         </Link>
+        */}
         <Link href="/about">
             <a>
                 <FontAwesomeIcon icon={faInfo} />
