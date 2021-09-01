@@ -48,13 +48,27 @@ class EventList(generics.GenericAPIView):  # List all job events, or create a ne
             result_page, many=True, context={"request": request}
         )
         return Response(serializer.data, status=status.HTTP_200_OK)
-
+    '''
     def post(self, request):  # POST REQUEST
         serializer = self.serializer_class(data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
+    '''
 
+# Details of selected Organization
+class EventDetails(generics.RetrieveAPIView):
+    serializer_class = EventSerializer
+
+    def get(self, request, id):
+        try:
+            event = Event.objects.get(id=id)
+            serializer = EventSerializer(event, many=False)
+            final_data = {"data": serializer.data, "errors": {}}
+            return Response(final_data, status=status.HTTP_200_OK)
+        except Event.DoesNotExist:
+            final_data = {"data": {}, "errors": "Event not found"}
+            return Response(final_data, status=status.HTTP_404_NOT_FOUND)
 
 class OrganizationFilter(filters.FilterSet):
     id = filters.CharFilter(field_name="id")
@@ -79,19 +93,19 @@ class OrganizationList(generics.ListAPIView):
         return Response(serializer.data, status=status.HTTP_200_OK)
 
 
-# List details of selected Organization
-class OrganizationDetailsList(generics.RetrieveAPIView):
+# Details of selected Organization
+class OrganizationDetails(generics.RetrieveAPIView):
     serializer_class = OrganizationDetailSerializer
 
     def get(self, request, slug):
         try:
             organization = Organization.objects.get(slug=slug)
             serializer = OrganizationDetailSerializer(organization, many=False)
-            fianl_data = {"data": serializer.data, "errors": {}}
-            return Response(fianl_data, status=status.HTTP_200_OK)
+            final_data = {"data": serializer.data, "errors": {}}
+            return Response(final_data, status=status.HTTP_200_OK)
         except Organization.DoesNotExist:
-            fianl_data = {"data": {}, "errors": "Organization not found"}
-            return Response(fianl_data, status=status.HTTP_404_NOT_FOUND)
+            final_data = {"data": {}, "errors": "Organization not found"}
+            return Response(final_data, status=status.HTTP_404_NOT_FOUND)
 
 
 # List all Members
