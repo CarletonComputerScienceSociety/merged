@@ -8,6 +8,7 @@ from .models import *
 from .serializers import *
 from .paginations import *
 from django_filters import rest_framework as filters
+from uuid import UUID
 
 """
 Acronyms in TIME FILTER
@@ -48,13 +49,15 @@ class EventList(generics.GenericAPIView):  # List all job events, or create a ne
             result_page, many=True, context={"request": request}
         )
         return Response(serializer.data, status=status.HTTP_200_OK)
-    '''
+
+    """
     def post(self, request):  # POST REQUEST
         serializer = self.serializer_class(data=request.data)
         serializer.is_valid(raise_exception=True)
         serializer.save()
         return Response(serializer.data, status=status.HTTP_201_CREATED)
-    '''
+    """
+
 
 # Details of selected Organization
 class EventDetails(generics.RetrieveAPIView):
@@ -62,13 +65,20 @@ class EventDetails(generics.RetrieveAPIView):
 
     def get(self, request, id):
         try:
+            # validate uuid
+            UUID(id, version=4)
             event = Event.objects.get(id=id)
             serializer = EventSerializer(event, many=False)
-            final_data = {"data": serializer.data, "errors": {}}
+            final_data = {"data": serializer.data, "errors": None}
             return Response(final_data, status=status.HTTP_200_OK)
+        except ValueError:
+            return Response(
+                {"data": {}, "errors": "Invalid ID"}, status=status.HTTP_400_BAD_REQUEST
+            )
         except Event.DoesNotExist:
             final_data = {"data": {}, "errors": "Event not found"}
             return Response(final_data, status=status.HTTP_404_NOT_FOUND)
+
 
 class OrganizationFilter(filters.FilterSet):
     id = filters.CharFilter(field_name="id")
@@ -101,7 +111,7 @@ class OrganizationDetails(generics.RetrieveAPIView):
         try:
             organization = Organization.objects.get(slug=slug)
             serializer = OrganizationDetailSerializer(organization, many=False)
-            final_data = {"data": serializer.data, "errors": {}}
+            final_data = {"data": serializer.data, "errors": None}
             return Response(final_data, status=status.HTTP_200_OK)
         except Organization.DoesNotExist:
             final_data = {"data": {}, "errors": "Organization not found"}
