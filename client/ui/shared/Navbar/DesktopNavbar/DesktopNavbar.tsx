@@ -5,11 +5,11 @@ const DesktopNavbar = () => (
   <div className="navbar">
     <div className="navbar-container">
       <Link href="/">
-        <a>
+        <a className="navbar-logo">
           <img
             className="navbar-image"
             alt="logo"
-            src="https://i.imgur.com/uusT5cG.png"
+            src="/logo.png"
           />
         </a>
       </Link>
@@ -17,8 +17,15 @@ const DesktopNavbar = () => (
         <div>
           <Link href="/about"><a>About</a></Link>
         </div>
+        {/*
         <div>
           <Link href="/organizations"><a>Organizations</a></Link>
+        </div>
+        */}
+        <div>
+          <a href="https://ccss.carleton.ca/volunteer/">
+            Volunteer
+          </a>
         </div>
         <div>
           <a href="https://github.com/CarletonComputerScienceSociety/community-project">
