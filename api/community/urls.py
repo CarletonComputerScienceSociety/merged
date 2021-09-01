@@ -22,10 +22,15 @@ schema_view = get_schema_view(
 
 urlpatterns = [
     path("events/", EventList.as_view(), name="events"),
+    path(
+        "events/<id>",
+        EventDetails.as_view(),
+        name="event-details",
+    ),
     path("organizations/", OrganizationList.as_view(), name="organizations"),
     path(
         "organizations/<slug>",
-        OrganizationDetailsList.as_view(),
+        OrganizationDetails.as_view(),
         name="organization-details",
     ),
     path("members/", MembersList.as_view(), name="members"),
