@@ -1,10 +1,10 @@
 import * as React from 'react';
 import { Organization as OrganizationPage } from '../../ui/pages';
-import { OrganizationDetailed, Error } from '../../types';
+import { ResponseOrganizationDetailed} from '../../types';
 import { getOrganizationBySlug } from '../../services';
 
 interface Props {
-  response: OrganizationDetailed | Error;
+  response: ResponseOrganizationDetailed;
 }
 
 const Page = ({ response }: Props) => <OrganizationPage response={response} />;

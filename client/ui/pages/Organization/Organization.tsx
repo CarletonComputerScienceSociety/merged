@@ -1,27 +1,26 @@
 import React from 'react';
 import { EventCard } from '../../shared';
 import { OrganizationHeader } from './OrganizationHeader';
+import { ResponseOrganizationDetailed } from '../../../types';
 
 interface Props {
-  response: any
+  response: ResponseOrganizationDetailed
 }
 
 const OrganizationPage = ({ response }: Props) => (
-  <div className="organization-page">
-    {
-    // fix this bad code
-    // eslint-disable-next-line no-prototype-builtins
-    !response.hasOwnProperty('message') ?
+
+<div className="organization-page">
+    {response.errors !== 'null' ?
     <>
       <OrganizationHeader
-        title={response.title}
-        description={response.description}
+        title={response.data.title}
+        description={response.data.description}
         profileUrl="https://i.imgur.com/dhzJz7r.jpg"
         backgroundUrl="https://ccss.carleton.ca/images/slideshow/orientation.jpeg"
       />
       <div className="page-wrap">
         <div className="card-container">
-          {response.newsItems.map((event, index) => (
+          {response.data.newsItems.map((event, index) => (
             <EventCard
               key={index}
               title={event.title}
@@ -35,7 +34,7 @@ const OrganizationPage = ({ response }: Props) => (
     </>
     :
     <div className="page-wrap">
-      <h1>{response.message}</h1>
+      <h1>{response.errors}</h1>
     </div>
     }
   </div>

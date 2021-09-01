@@ -1,9 +1,9 @@
-import { Organization, OrganizationDetailed, Error } from '../types';
+import { Organization, ResponseOrganizationDetailed } from '../types';
 import { ORGANIZATIONS } from '../data';
 
 const getOrganizations = async (): Promise<Organization[]> => {
   if (process.env.USE_API === 'true') {
-    return fetch(`${process.env.API_URL}/api/organizations/`, {
+    return fetch(`${process.env.API_URL}/api/organizations`, {
       headers: {
         'Content-Type': 'application/json',
         Accept: 'application/json'
@@ -15,13 +15,20 @@ const getOrganizations = async (): Promise<Organization[]> => {
 
 const getOrganizationBySlug = async (
   slug: string
-): Promise<OrganizationDetailed | Error | any> => {
+): Promise<ResponseOrganizationDetailed> => {
   if (process.env.USE_API === 'true') {
-    return fetch(`${process.env.API_URL}/api/organizations/${slug}`)
-      .then(response => response.json())
-      .then(data => data);
+    // eslint-disable-next-line eqeqeq
+    if (slug != undefined && slug != null) {
+      return fetch(`${process.env.API_URL}/api/organizations/${slug}`)
+        .then(response => response.json())
+        .then(data => data);
+    }
   }
-  return ORGANIZATIONS.find(organization => organization.slug === slug);
+  const mockOrganization = ORGANIZATIONS[0]; // ORGANIZATIONS.find(organization => organization.slug === slug)
+  return {
+    data: mockOrganization,
+    errors: ''
+  };
 };
 
 export { getOrganizations, getOrganizationBySlug };

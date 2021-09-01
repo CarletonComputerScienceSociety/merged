@@ -27,6 +27,7 @@ export interface OrganizationDetailed {
     newsItems: Array<any>
 }
 
-export interface Error {
-    message: string;
+export interface ResponseOrganizationDetailed {
+    data: OrganizationDetailed;
+    errors: String;
 }
