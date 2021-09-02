@@ -77,7 +77,8 @@
 @media only screen and (max-width: 600px) {
   .navbar {
     position: sticky;
-    background-color: #d3232b;
+    // background-color: #d3232b;
+    box-shadow: 0 4px 12px -4px rgb(0 0 0 / 7%);
   }
 
   .navbar-container {
@@ -91,11 +92,16 @@
   .mobile-navbar {
     display: flex;
   }
+
+  .navbar-image {
+    margin-bottom: 0.3rem;
+  }
 }
 
 @media only screen and (min-width: 600px) {
   .navbar {
     display: flex;
+    margin-top: 1.2rem;
   }
 
   .mobile-navbar {

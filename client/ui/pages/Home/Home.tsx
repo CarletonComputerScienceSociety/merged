@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
 import { Event } from '../../../types';
-import { Button, EventCard } from '../../shared';
+import { EventCard } from '../../shared';
 import { EventFilter } from './EventFilter';
 
 interface Props {
@@ -10,12 +10,8 @@ interface Props {
 const Home = ({ data }: Props) => {
   const filterOptions = [
     {
-      value: 'featured',
-      label: 'Featured'
-    },
-    {
-      value: 'all',
-      label: 'All'
+      value: 'upcoming',
+      label: 'Upcoming'
     },
     {
       value: 'today',
@@ -30,12 +26,12 @@ const Home = ({ data }: Props) => {
       label: 'Social'
     },
     {
-      value: 'workshop',
-      label: 'Workshop'
+      value: 'academic',
+      label: 'Academic'
     },
     {
-      value: 'hackathon',
-      label: 'Hackathon'
+      value: 'info session',
+      label: 'Info Session'
     }
   ];
 
@@ -62,7 +58,7 @@ const Home = ({ data }: Props) => {
             />
           ))}
         </div>
-        <Button text="Show More" />
+        {/* <Button text="Show More" /> */}
       </div>
     </div>
   );
