@@ -1,4 +1,5 @@
 import Head from 'next/head';
+import React from 'react';
 import '../styles/global.scss';
 import { Navbar, Footer } from '../ui/shared';
 
