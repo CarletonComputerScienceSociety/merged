@@ -19,7 +19,7 @@ const EventFilter = ({
   <div className="event-filter">
     {filterOptions.map((filterOption, index) => (
       <a
-        href="#events"
+        href="#"
         className={
           `event-filter-option${
           selectedFilterOption === index
