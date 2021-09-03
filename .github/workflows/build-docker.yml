@@ -25,7 +25,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: client
-          file: Dockerfile.prod
+          file: client/Dockerfile.prod
           push: true
           tags: |
             ghcr.io/carletoncomputersciencesociety/merged/merged-client:latest
@@ -49,7 +49,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: api
-          file: Dockerfile.prod
+          file: api/Dockerfile.prod
           push: true
           tags: |
             ghcr.io/carletoncomputersciencesociety/merged/merged-api:latest
