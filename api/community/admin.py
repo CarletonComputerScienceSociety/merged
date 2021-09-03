@@ -1,5 +1,5 @@
 from django.contrib import admin
-from .models import Announcement, Event, Member, NewsItem, Organization
+from .models import Announcement, Event, Member, Category, Organization
 
 # Register your models here.
 @admin.register(Event)
@@ -21,3 +21,8 @@ class Member(admin.ModelAdmin):
 @admin.register(Announcement)
 class Announcement(admin.ModelAdmin):
     list_display = ["id", "title", "excerpt", "external_link"]
+
+
+@admin.register(Category)
+class CategoryResource(admin.ModelAdmin):
+    list_display = ["id", "title"]
