@@ -1,5 +1,5 @@
 import React from 'react';
 
-const Footer = () => <div className="footer">© 2021 Carleton Computer Science Society</div>;
+const Footer = () => <div className="footer"><a href="https://ccss.carleton.ca/">© 2021 Carleton Computer Science Society</a></div>;
 
 export { Footer };
