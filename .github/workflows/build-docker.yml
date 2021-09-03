@@ -2,8 +2,8 @@ name: Build Docker Images
 
 on:
   push:
-    branches:
-      - "master"
+    # branches:
+    #   - "master"
 
 jobs:
   build-client-docker:
@@ -49,6 +49,7 @@ jobs:
         uses: docker/build-push-action@v2
         with:
           context: api
+          dockerfile: Dockerfile.prod
           push: true
           tags: |
             ghcr.io/carletoncomputersciencesociety/merged/merged-api:latest
