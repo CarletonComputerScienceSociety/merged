@@ -23,6 +23,13 @@ class Member(models.Model):
         return self.first_name + " " + self.last_name
 
 
+class Category(models.Model):
+    title = models.CharField(max_length=200)
+
+    def __str__(self):
+        return self.title
+
+
 class Organization(models.Model):
     title = models.CharField(max_length=150)
     description = models.TextField(null=True, blank=True)
@@ -60,6 +67,7 @@ class NewsItem(PolymorphicModel):
     status = models.CharField(max_length=12, choices=STATUS_CHOICES, default="public")
     external_link = models.CharField(max_length=300, blank=True)
     organizations = models.ManyToManyField(Organization, related_name="news_items")
+    categories = models.ManyToManyField(Category, related_name="categories")
 
 
 class Announcement(NewsItem):

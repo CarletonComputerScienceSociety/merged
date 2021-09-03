@@ -23,14 +23,19 @@ class EventFilter(filters.FilterSet):
     start_time = filters.DateTimeFilter(field_name="start_time", lookup_expr="gte")
     end_time = filters.DateTimeFilter(field_name="end_time", lookup_expr="lte")
     organization = filters.ModelChoiceFilter(
-        field_name="organization",
+        field_name="organizations",
         to_field_name="slug",
         queryset=Organization.objects.all(),
     )
-    # To add Category Filter
+    category = filters.ModelChoiceFilter(
+        field_name="categories",
+        to_field_name="title",
+        queryset=Category.objects.all(),
+    )
+
     class Meta:
         model = Event
-        fields = ["id", "title", "start_time", "end_time", "organization"]
+        fields = ["id", "title", "start_time", "end_time", "organization", "category"]
 
 
 class EventList(generics.GenericAPIView):  # List all job events, or create a new  event

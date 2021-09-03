@@ -1,10 +1,25 @@
 from django.db.models import fields
-from community.models import Event, Organization, Member, Announcement, NewsItem
+from community.models import (
+    Event,
+    Organization,
+    Member,
+    Announcement,
+    Category,
+    NewsItem,
+)
 from rest_framework import serializers
 from rest_polymorphic.serializers import PolymorphicSerializer
 
 
+class CategorySerializer(serializers.ModelSerializer):
+    class Meta:
+        model = Category
+        fields = ["title"]
+
+
 class EventSerializer(serializers.ModelSerializer):
+    categories = CategorySerializer(many=True, required=False)
+
     class Meta:
         model = Event
         fields = [
@@ -16,6 +31,7 @@ class EventSerializer(serializers.ModelSerializer):
             "location",
             "external_link",
             "poster",
+            "categories",
         ]
 
 
