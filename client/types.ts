@@ -6,6 +6,7 @@ export interface Event {
     endTime: string;
     category: string;
     poster: string;
+    externalLink: string;
 }
 
 export interface Organization {

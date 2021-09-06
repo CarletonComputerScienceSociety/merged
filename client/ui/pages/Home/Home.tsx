@@ -88,6 +88,7 @@ const Home = ({ data }: Props) => {
                 date={formatEventDate(event.startTime)}
                 category="Event"
                 poster={event.poster}
+                url={event.externalLink}
               />
             ))}
           </>
@@ -102,6 +103,7 @@ const Home = ({ data }: Props) => {
                 date={formatEventDate(event.startTime)}
                 category="Event"
                 poster={event.poster}
+                url={event.externalLink}
               />
             ))}
           </>
@@ -116,6 +118,7 @@ const Home = ({ data }: Props) => {
                 date={formatEventDate(event.startTime)}
                 category="Event"
                 poster={event.poster}
+                url={event.externalLink}
               />
             ))}
           </>
@@ -130,6 +133,7 @@ const Home = ({ data }: Props) => {
                 date={formatEventDate(event.startTime)}
                 category="Event"
                 poster={event.poster}
+                url={event.externalLink}
               />
             ))}
           </>
@@ -144,6 +148,7 @@ const Home = ({ data }: Props) => {
                 date={formatEventDate(event.startTime)}
                 category="Event"
                 poster={event.poster}
+                url={event.externalLink}
               />
             ))}
           </>
@@ -158,6 +163,7 @@ const Home = ({ data }: Props) => {
                 date={formatEventDate(event.startTime)}
                 category="Event"
                 poster={event.poster}
+                url={event.externalLink}
               />
             ))}
           </>
