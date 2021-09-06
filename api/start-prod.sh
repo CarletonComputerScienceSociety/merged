@@ -1,6 +1,7 @@
 #!/bin/bash
 
 export DJANGO_SETTINGS_MODULE=api.settings.prod
+python manage.py migrate
 python manage.py runserver
 # gunicorn \
 #     -w 2 \
