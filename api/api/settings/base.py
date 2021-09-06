@@ -41,14 +41,16 @@ INSTALLED_APPS = [
     "django.contrib.messages",
     "django.contrib.staticfiles",
     "community",
-    "rest_framework",
+    "corsheaders",
+    "django_extensions",
+    "django_filters",
     "drf_yasg",
     "polymorphic",
-    "django_filters",
-    "django_extensions",
+    "rest_framework",
 ]
 
 MIDDLEWARE = [
+    "corsheaders.middleware.CorsMiddleware",
     "django.middleware.security.SecurityMiddleware",
     "django.contrib.sessions.middleware.SessionMiddleware",
     "django.middleware.common.CommonMiddleware",
@@ -148,3 +150,9 @@ AWS_QUERYSTRING_AUTH = False
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
 
 DEFAULT_AUTO_FIELD = "django.db.models.BigAutoField"
+
+# Cors
+
+CORS_ALLOWED_ORIGINS = [
+    "https://merged.carletoncomputerscience.ca",
+]
