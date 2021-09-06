@@ -27,6 +27,7 @@ const OrganizationPage = ({ response }: Props) => (
               date="Sat, Aug 21, 2021 5:00 PM EDT"
               category={event.category}
               poster={event.poster}
+              url={event.externalLink}
             />
           ))}
         </div>

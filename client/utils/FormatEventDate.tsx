@@ -29,15 +29,15 @@ function formatEventDate(d) {
   const monthIndex = date.getMonth();
   const year = date.getFullYear();
   let hours = date.getHours();
-  let minutes = date.getMinutes();
+  const minutes = date.getMinutes();
   const dayIndex = date.getDay();
   const ampm = hours >= 12 ? "PM" : "AM";
 
   hours %= 12;
   hours = hours || 12; // the hour '0' should be '12'
-  minutes = minutes < 10 ? `0${  minutes}` : minutes;
+  const minutesString = minutes < 10 ? `0${  minutes}` : minutes;
 
-  const strTime = `${dayNames[dayIndex]  }, ${  monthNames[monthIndex]  } ${  day  }, ${  year  } ${  hours  }:${  minutes  } ${  ampm} EDT`;
+  const strTime = `${dayNames[dayIndex]  }, ${  monthNames[monthIndex]  } ${  day  }, ${  year  } ${  hours  }:${  minutesString  } ${  ampm} EDT`;
   return strTime;
 }
 
