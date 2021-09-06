@@ -24,3 +24,7 @@ jobs:
         run: |
           cd client
           yarn run test
+      - name: Try to build production
+        run: |
+          cd client
+          yarn build && yarn install --production --ignore-scripts --prefer-offline
