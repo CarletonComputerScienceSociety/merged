@@ -35,6 +35,7 @@ module.exports = {
     'react/no-array-index-key': 'off',
     'import/no-extraneous-dependencies': 'off',
     'react/jsx-props-no-spreading': 'off',
-    'react/button-has-type': 'off'
+    'react/button-has-type': 'off',
+    'react/no-unescaped-entities': 'off'
   }
 }
