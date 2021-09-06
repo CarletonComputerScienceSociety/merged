@@ -1,3 +1,4 @@
+import Head from 'next/head';
 import '../styles/global.scss';
 import { Navbar, Footer } from '../ui/shared';
 
@@ -5,6 +6,9 @@ import { Navbar, Footer } from '../ui/shared';
 function MyApp({ Component, pageProps }) {
   return (
     <>
+      <Head>
+        <title>Carleton Merged</title>
+      </Head>
       <Navbar />
       <Component {...pageProps} />
       <Footer />
