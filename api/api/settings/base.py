@@ -142,6 +142,7 @@ AWS_ACCESS_KEY_ID = os.environ.get("ACCESS_KEY", "access-key")
 AWS_SECRET_ACCESS_KEY = os.environ.get("SECRET_KEY", "secret-key")
 AWS_STORAGE_BUCKET_NAME = os.environ.get("AWS_STORAGE_BUCKET_NAME", "merged")
 AWS_S3_REGION_NAME = "us-east-1"
+AWS_QUERYSTRING_AUTH = False
 
 # Default primary key field type
 # https://docs.djangoproject.com/en/3.2/ref/settings/#default-auto-field
