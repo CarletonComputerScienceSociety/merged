@@ -27,4 +27,4 @@ jobs:
       - name: Try to build production
         run: |
           cd client
-          yarn build && yarn install --production --ignore-scripts --prefer-offline
+          yarn build
