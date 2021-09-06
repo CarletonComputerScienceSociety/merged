@@ -5,6 +5,8 @@ DEBUG = False
 for i in range(1, 255):
     ALLOWED_HOSTS.append(f"192.168.30.{i}")
 
+ALLOWED_HOSTS.append("api.merged.staging.discretemath.ca")
+
 DATABASES = {
     "default": {
         "ENGINE": "django.db.backends.postgresql",
