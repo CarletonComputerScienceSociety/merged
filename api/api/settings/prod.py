@@ -1,7 +1,13 @@
 import sentry_sdk
 from sentry_sdk.integrations.django import DjangoIntegration
+import environ
 
 from .base import *
+
+env = environ.Env(
+    # set casting, default value
+    MERGED_DATABASE_HOST=(str, "localhost")
+)
 
 DEBUG = False
 
@@ -16,7 +22,7 @@ DATABASES = {
         "NAME": "community_db",
         "USER": "postgres",
         "PASSWORD": "1234",
-        "HOST": "localhost",
+        "HOST": env("MERGED_DATABASE_HOST"),
         "PORT": 5433,
     }
 }
