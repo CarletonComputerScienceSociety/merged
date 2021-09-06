@@ -16,7 +16,7 @@ DATABASES = {
         "NAME": "community_db",
         "USER": "postgres",
         "PASSWORD": "1234",
-        "HOST": "localhost:5432",
+        "HOST": "localhost",
         "PORT": 5432,
     }
 }
