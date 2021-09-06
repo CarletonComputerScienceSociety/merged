@@ -1,4 +1,4 @@
-import * as React from 'react';
+import React from 'react';
 import { Organization as OrganizationPage } from '../../ui/pages';
 import { ResponseOrganizationDetailed} from '../../types';
 import { getOrganizationBySlug } from '../../services';

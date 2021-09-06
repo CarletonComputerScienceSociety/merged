@@ -2,8 +2,6 @@ name: Client
 
 on:
   push:
-    paths:
-      - "client/**"
 
 jobs:
   build:
@@ -26,3 +24,7 @@ jobs:
         run: |
           cd client
           yarn run test
+      - name: Try to build production
+        run: |
+          cd client
+          yarn build
