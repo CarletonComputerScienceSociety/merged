@@ -1,5 +1,4 @@
-
-import Head from 'next/head'
+import Head from 'next/head';
 import '../styles/global.scss';
 import { Navbar, Footer } from '../ui/shared';
 
