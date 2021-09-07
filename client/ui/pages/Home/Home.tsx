@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Event } from '../../../types';
 import { EventCard } from '../../shared';
 import { EventFilter } from './EventFilter';
-import { getEventsByCategory, getEventsThisWeek, getEventsToday } from '../../../services';
+import { getEventsByCategory } from '../../../services';
 import { formatEventDate } from '../../../utils';
 
 interface Props {
@@ -13,15 +13,7 @@ const Home = ({ data }: Props) => {
   const filterOptions = [
     {
       value: 'events',
-      label: 'Upcoming'
-    },
-    {
-      value: 'today',
-      label: 'Today'
-    },
-    {
-      value: 'this week',
-      label: 'This Week'
+      label: 'Events'
     },
     {
       value: 'social',
@@ -40,27 +32,19 @@ const Home = ({ data }: Props) => {
   const [selectedFilterOption, setSelectedFilterOption] = useState(0);
 
   const defaultEvents: Event[] = [];
-  const [today, setToday] = useState(defaultEvents);
-  const [week, setWeek] = useState(defaultEvents);
   const [social, setSocial] = useState(defaultEvents);
   const [academic, setAcademic] = useState(defaultEvents);
   const [infoSession, setInfoSession] = useState(defaultEvents);
 
   const changeFilterOption = async (selectedIndex: number) => {
     if (selectedIndex === 1) {
-      const todayEvents = await getEventsToday();
-      setToday(todayEvents);
-    } else if (selectedIndex === 2) {
-      const weekEvents = await getEventsThisWeek();
-      setWeek(weekEvents);
-    } else if (selectedIndex === 3) {
-      const socialEvents = await getEventsByCategory(filterOptions[selectedIndex].value);
+      const socialEvents = await getEventsByCategory('social');
       setSocial(socialEvents);
-    } else if (selectedIndex === 4) {
-      const academicEvents = await getEventsByCategory(filterOptions[selectedIndex].value);
+    } else if (selectedIndex === 2) {
+      const academicEvents = await getEventsByCategory('academic');
       setAcademic(academicEvents);
-    } else if (selectedIndex === 5) {
-      const infoSessionEvents = await getEventsByCategory(filterOptions[selectedIndex].value);
+    } else if (selectedIndex === 3) {
+      const infoSessionEvents = await getEventsByCategory('info-session');
       setInfoSession(infoSessionEvents);
     }
 
@@ -93,38 +77,8 @@ const Home = ({ data }: Props) => {
             ))}
           </>
           }
-          {/* today events */}
-          {selectedFilterOption === 1 &&
-          <>
-            {today.map((event, index) => (
-              <EventCard
-                key={index}
-                title={event.title}
-                date={formatEventDate(event.startTime)}
-                category="Event"
-                poster={event.poster}
-                url={event.externalLink}
-              />
-            ))}
-          </>
-          }
-          {/* week events */}
-          {selectedFilterOption === 2 &&
-          <>
-            {week.map((event, index) => (
-              <EventCard
-                key={index}
-                title={event.title}
-                date={formatEventDate(event.startTime)}
-                category="Event"
-                poster={event.poster}
-                url={event.externalLink}
-              />
-            ))}
-          </>
-          }
           {/* social events */}
-          {selectedFilterOption === 3 &&
+          {selectedFilterOption === 1 &&
           <>
             {social.map((event, index) => (
               <EventCard
@@ -139,7 +93,7 @@ const Home = ({ data }: Props) => {
           </>
           }
           {/* academic events */}
-          {selectedFilterOption === 4 &&
+          {selectedFilterOption === 2 &&
           <>
             {academic.map((event, index) => (
               <EventCard
@@ -154,7 +108,7 @@ const Home = ({ data }: Props) => {
           </>
           }
           {/* info session events */}
-          {selectedFilterOption === 5 &&
+          {selectedFilterOption === 3 &&
           <>
             {infoSession.map((event, index) => (
               <EventCard
