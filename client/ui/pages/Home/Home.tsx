@@ -13,7 +13,7 @@ const Home = ({ data }: Props) => {
   const filterOptions = [
     {
       value: 'events',
-      label: 'Events'
+      label: 'Upcoming'
     },
     {
       value: 'today',

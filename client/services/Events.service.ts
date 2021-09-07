@@ -3,8 +3,14 @@ import { EVENTS } from '../data';
 
 const getEvents = async (): Promise<Event[]> => {
   if (process.env.NEXT_PUBLIC_USE_API === 'true') {
+    const today = new Date();
+    const dd = String(today.getDate()).padStart(2, '0');
+    const mm = String(today.getMonth() + 1).padStart(2, '0');
+    const yyyy = today.getFullYear();
+    const todayFormatted = `${yyyy}-${mm}-${dd}`;
+
     return fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/api/events/?pagelimit=12`,
+      `${process.env.NEXT_PUBLIC_API_URL}/api/events/?start_time=${todayFormatted}&pagelimit=12`,
       {
         headers: {
           'Content-Type': 'application/json',
@@ -20,8 +26,14 @@ const getEventsByCategory = async (category: string): Promise<Event[]> => {
   if (process.env.NEXT_PUBLIC_USE_API === 'true') {
     // eslint-disable-next-line eqeqeq
     if (category != undefined && category != null) {
+      const today = new Date();
+      const dd = String(today.getDate()).padStart(2, '0');
+      const mm = String(today.getMonth() + 1).padStart(2, '0');
+      const yyyy = today.getFullYear();
+      const todayFormatted = `${yyyy}-${mm}-${dd}`;
+
       return fetch(
-        `${process.env.NEXT_PUBLIC_API_URL}/api/events/?category=${category}&pagelimit=12`
+        `${process.env.NEXT_PUBLIC_API_URL}/api/events/?start_time=${todayFormatted}&category=${category}&pagelimit=12`
       )
         .then(response => response.json())
         .then(data => data);
@@ -73,7 +85,7 @@ const getEventsThisWeek = async (): Promise<Event[]> => {
     const weekFormatted = `${yyyyW}-${mmW}-${ddW}`;
 
     return fetch(
-      `${process.env.NEXT_PUBLIC_API_URL}/api/events/?start_time=${yesterdayFormatted}&end_date=${weekFormatted}&pagelimit=12`
+      `${process.env.NEXT_PUBLIC_API_URL}/api/events/?start_time=${yesterdayFormatted}&end_time=${weekFormatted}&pagelimit=12`
     )
       .then(response => response.json())
       .then(data => data);
