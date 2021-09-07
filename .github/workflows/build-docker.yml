@@ -47,7 +47,6 @@ jobs:
         uses: SpicyPizza/create-envfile@v1
         with:
           envkey_ACCESS_KEY: ${{ secrets.ACCESS_KEY }}
-          envkey_SECRET_KEY: ${{ secrets.SECRET_KEY }}
       - name: Move env file
         run: |
           mv .env ./api/
