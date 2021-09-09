@@ -13,6 +13,16 @@ function MyApp({ Component, pageProps }) {
       <Navbar />
       <Component {...pageProps} />
       <Footer />
+      <noscript>
+        <img
+          src="https://shynet.carletoncomputersciencesociety.ca/ingress/917dcbec-c373-4142-b34d-063ed29095e6/pixel.gif"
+          alt="shynet"
+        />
+      </noscript>
+      <script
+        defer
+        src="https://shynet.carletoncomputersciencesociety.ca/ingress/917dcbec-c373-4142-b34d-063ed29095e6/script.js"
+      />
     </>
   );
 }
