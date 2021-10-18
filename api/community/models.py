@@ -10,6 +10,7 @@ from django.utils.text import slugify
 STATUS_CHOICES = (
     ("draft", "DRAFT"),
     ("public", "PUBLIC"),
+    ("cancelled", "CANCELLED")
 )
 
 
